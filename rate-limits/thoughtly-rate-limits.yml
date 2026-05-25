@@ -1,0 +1,31 @@
+specification: API Commons Rate Limits
+specificationVersion: '0.1'
+schema: https://raw.githubusercontent.com/api-evangelist/interface-research/main/schema/api-commons.yml#/$defs/RateLimits
+provider: Thoughtly
+providerId: thoughtly
+created: '2026-05-24'
+modified: '2026-05-24'
+reconciled: false
+tags:
+  - Rate Limiting
+  - Voice AI
+description: |
+  Rate limits for the Thoughtly public API. Limits are uniform across plans
+  (per-key) and a 429 response indicates throttling.
+sources:
+  - https://docs.thoughtly.com/developers
+  - https://docs.thoughtly.com/api-reference
+responseCodes:
+  throttled: 429
+  quotaExceeded: 429
+algorithm: fixed-window
+limits:
+  - tier: All API keys
+    surface: REST API
+    rpm: 100
+    description: 100 requests per minute per API key across all endpoints.
+retry:
+  webhookDelivery: Thoughtly does NOT auto-retry failed webhook deliveries. A 429 from a subscriber URL is retried once, respecting the Retry-After header.
+guidance:
+  - Apply exponential backoff on 429 responses.
+  - Use Automations + Audiences for high-volume outbound campaigns rather than tight per-contact loops.

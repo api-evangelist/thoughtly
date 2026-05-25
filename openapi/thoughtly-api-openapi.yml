@@ -1,0 +1,495 @@
+openapi: 3.0.0
+info:
+  title: Thoughtly API
+  version: 1.0.0
+  description: |
+    The Thoughtly API lets you programmatically manage voice and chat AI agents,
+    contacts, calls, webhooks, and automations. Voice Agents are referenced in
+    the API as "interviews" for historical reasons. Authentication uses two
+    headers: `x-api-token` and `team_id`, both available from the Developer
+    Settings page of the Thoughtly dashboard.
+  contact:
+    name: Thoughtly Support
+    email: support@thoughtly.com
+    url: https://thoughtly.com
+  termsOfService: https://thoughtly.com/terms
+  license:
+    name: Proprietary
+servers:
+  - url: https://api.thoughtly.com
+    description: Production Server
+tags:
+  - name: agent
+    description: Voice and chat agent operations. Agents are referenced as "interviews" in URLs.
+  - name: contact
+    description: Contact management — create, retrieve, update, and call contacts.
+  - name: user
+    description: Authenticated user details.
+  - name: webhooks
+    description: Webhook subscription, unsubscription, and automation triggers.
+paths:
+  /interview:
+    get:
+      summary: Get Agents
+      description: Retrieves a list of Agents (formerly Interviews) available in your workspace. Supports filtering by status, search term, and sorting.
+      operationId: getAgents
+      tags:
+        - agent
+      parameters:
+        - name: search
+          in: query
+          schema:
+            type: string
+          description: Search term to filter Agents by title, name, or other properties.
+        - name: status
+          in: query
+          schema:
+            type: string
+            enum:
+              - ACTIVE
+              - ARCHIVED
+          description: Filter Agents by their current status.
+        - name: sort
+          in: query
+          schema:
+            type: string
+            enum:
+              - title_asc
+              - title_desc
+              - created_asc
+              - created_desc
+          description: Sort order for Agents.
+        - name: all_interviews
+          in: query
+          schema:
+            type: boolean
+          description: Set true to include archived Agents.
+        - name: page
+          in: query
+          schema:
+            type: integer
+            minimum: 0
+          description: Pagination page index (0-based).
+        - name: limit
+          in: query
+          schema:
+            type: integer
+            minimum: 1
+            maximum: 50
+            default: 20
+          description: Page size (max 50, default 20).
+      responses:
+        '200':
+          description: A list of Agents.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/GenericResponse'
+  /interview/{interview_id}/responses:
+    get:
+      summary: Search Calls
+      description: Search and filter calls (responses) for a given Agent.
+      operationId: searchCalls
+      tags:
+        - agent
+      parameters:
+        - name: interview_id
+          in: path
+          required: true
+          schema:
+            type: string
+          description: The ID of the Agent that produced the calls.
+        - name: search
+          in: query
+          schema:
+            type: string
+          description: Search term to filter call responses.
+        - name: response_tags
+          in: query
+          style: form
+          explode: true
+          schema:
+            type: array
+            items:
+              type: string
+          description: Filter responses by tag.
+        - name: status
+          in: query
+          style: form
+          explode: true
+          schema:
+            type: array
+            items:
+              type: string
+          description: Filter responses by status (e.g. success, failure).
+        - name: job_id
+          in: query
+          schema:
+            type: string
+          description: Filter responses by job ID.
+        - name: page
+          in: query
+          schema:
+            type: integer
+            minimum: 0
+        - name: limit
+          in: query
+          schema:
+            type: integer
+            minimum: 1
+            maximum: 50
+            default: 20
+      responses:
+        '200':
+          description: A list of call responses for the Agent.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/GenericResponse'
+  /contact:
+    get:
+      summary: Get Contacts
+      description: Retrieves a list of Contacts. Supports filtering by tags, phone numbers, and search.
+      operationId: getContacts
+      tags:
+        - contact
+      parameters:
+        - name: search
+          in: query
+          schema:
+            type: string
+        - name: phone_numbers_only
+          in: query
+          schema:
+            type: boolean
+        - name: tags
+          in: query
+          style: form
+          explode: true
+          schema:
+            type: array
+            items:
+              type: string
+        - name: excluded_tags
+          in: query
+          style: form
+          explode: true
+          schema:
+            type: array
+            items:
+              type: string
+        - name: sort
+          in: query
+          schema:
+            type: string
+        - name: sortDirection
+          in: query
+          schema:
+            type: string
+            enum:
+              - asc
+              - desc
+        - name: page
+          in: query
+          schema:
+            type: integer
+            minimum: 0
+        - name: limit
+          in: query
+          schema:
+            type: integer
+            minimum: 1
+            maximum: 50
+            default: 20
+      responses:
+        '200':
+          description: A list of Contacts.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/GenericResponse'
+  /contact/create:
+    post:
+      summary: Create Contact
+      description: Creates a new Contact (a person you can call or message).
+      operationId: createContact
+      tags:
+        - contact
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ContactCreateRequest'
+      responses:
+        '200':
+          description: Contact created.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/GenericResponse'
+  /contact/{id}:
+    get:
+      summary: Get Contact
+      description: Retrieve a single Contact by ID.
+      operationId: getContact
+      tags:
+        - contact
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: The Contact.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/GenericResponse'
+        '404':
+          description: Contact not found.
+    delete:
+      summary: Delete Contact
+      description: Permanently deletes a Contact by ID.
+      operationId: deleteContact
+      tags:
+        - contact
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Contact deleted.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/GenericResponse'
+  /contact/call:
+    post:
+      summary: Call A Contact
+      description: Initiate a call with a Contact using a specific Agent (interview).
+      operationId: callContact
+      tags:
+        - contact
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/CallRequest'
+      responses:
+        '200':
+          description: Call initiated.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/GenericResponse'
+  /user:
+    get:
+      summary: Get User Details
+      description: Retrieve the currently authenticated user's profile (ID, name, email).
+      operationId: getUser
+      tags:
+        - user
+      responses:
+        '200':
+          description: Authenticated user details.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/GenericResponse'
+  /webhooks:
+    get:
+      summary: Get Currently Active Webhooks
+      description: Retrieve all active webhook subscriptions for the authenticated workspace.
+      operationId: getWebhooks
+      tags:
+        - webhooks
+      responses:
+        '200':
+          description: List of webhook subscriptions.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/GenericResponse'
+  /webhooks/subscribe:
+    post:
+      summary: Subscribe To Webhook
+      description: Subscribe to a webhook event (e.g. NEW_RESPONSE, PHONE_TRANSFER).
+      operationId: subscribeWebhook
+      tags:
+        - webhooks
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/WebhookSubscribeRequest'
+      responses:
+        '200':
+          description: Subscription created.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/GenericResponse'
+  /webhooks/unsubscribe:
+    delete:
+      summary: Unsubscribe From Webhook
+      description: Remove a webhook subscription.
+      operationId: unsubscribeWebhook
+      tags:
+        - webhooks
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/WebhookUnsubscribeRequest'
+      responses:
+        '200':
+          description: Subscription removed.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/GenericResponse'
+  /webhook/automation/{automation_id}:
+    post:
+      summary: Trigger Automation With Webhook
+      description: Trigger an Automation that uses a Webhook trigger. Request body can be any arbitrary JSON; fields are available downstream in the automation steps.
+      operationId: triggerAutomation
+      tags:
+        - webhooks
+      parameters:
+        - name: automation_id
+          in: path
+          required: true
+          schema:
+            type: string
+          description: The ID of the Webhook-triggered automation.
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              additionalProperties: true
+              description: Arbitrary JSON payload passed into the automation.
+      security: []
+      responses:
+        '200':
+          description: Automation triggered.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/GenericResponse'
+components:
+  securitySchemes:
+    ApiKeyAuth:
+      type: apiKey
+      in: header
+      name: x-api-token
+      description: API token from Thoughtly Developer Settings.
+    TeamIdAuth:
+      type: apiKey
+      in: header
+      name: team_id
+      description: Team identifier from Thoughtly Developer Settings.
+  schemas:
+    GenericResponse:
+      type: object
+      required:
+        - data
+      properties:
+        error:
+          type: object
+          nullable: true
+          description: Populated only when the request fails.
+        data:
+          type: object
+          additionalProperties: true
+          description: Endpoint-specific payload.
+    ContactCreateRequest:
+      type: object
+      required:
+        - phone_number
+      properties:
+        phone_number:
+          type: string
+          description: E.164 phone number of the Contact (required).
+        name:
+          type: string
+        email:
+          type: string
+          format: email
+        country_code:
+          type: string
+        tags:
+          type: array
+          items:
+            type: string
+        attributes:
+          type: object
+          additionalProperties: true
+          description: Custom key/value attributes referenceable from Agent scripts.
+      additionalProperties: false
+    CallRequest:
+      type: object
+      required:
+        - contact_id
+        - interview_id
+      properties:
+        contact_id:
+          type: string
+          description: ID of the Contact to call.
+        interview_id:
+          type: string
+          description: ID of the Agent (interview) that will handle the call.
+        metadata:
+          type: object
+          additionalProperties: true
+          nullable: true
+          description: Arbitrary key/value pairs available to the Agent script as `{key}` placeholders.
+    WebhookSubscribeRequest:
+      type: object
+      required:
+        - type
+        - url
+      properties:
+        type:
+          type: string
+          enum:
+            - NEW_RESPONSE
+            - PHONE_TRANSFER
+        data:
+          type: string
+          nullable: true
+        url:
+          type: string
+          format: uri
+    WebhookUnsubscribeRequest:
+      type: object
+      required:
+        - type
+        - url
+      properties:
+        type:
+          type: string
+          enum:
+            - NEW_RESPONSE
+            - PHONE_TRANSFER
+            - FOLDER_NEW_RESPONSE
+            - FOLDER_PHONE_TRANSFER
+            - ACTION_FAILED
+        data:
+          type: string
+        url:
+          type: string
+      additionalProperties: false
+security:
+  - ApiKeyAuth: []
+    TeamIdAuth: []

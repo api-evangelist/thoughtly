@@ -1,0 +1,52 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://api-evangelist.com/schemas/thoughtly/thoughtly-contact-schema.json",
+  "title": "Thoughtly Contact",
+  "description": "Schema for the Thoughtly Contact object used by the Thoughtly API. A Contact represents a person whom an Agent can call or message.",
+  "type": "object",
+  "required": ["phone_number"],
+  "properties": {
+    "id": {
+      "type": "string",
+      "description": "Unique identifier for the Contact, assigned by Thoughtly."
+    },
+    "phone_number": {
+      "type": "string",
+      "description": "E.164 phone number used to call or message the Contact."
+    },
+    "name": {
+      "type": "string",
+      "description": "Display name for the Contact."
+    },
+    "email": {
+      "type": "string",
+      "format": "email",
+      "description": "Optional email address associated with the Contact."
+    },
+    "country_code": {
+      "type": "string",
+      "description": "ISO country code used when normalizing the phone number."
+    },
+    "tags": {
+      "type": "array",
+      "items": { "type": "string" },
+      "description": "User-defined tags for segmenting Contacts."
+    },
+    "attributes": {
+      "type": "object",
+      "additionalProperties": true,
+      "description": "Custom key/value attributes referenced from Agent scripts as `{key_name}`."
+    },
+    "created_at": {
+      "type": "string",
+      "format": "date-time",
+      "description": "ISO 8601 timestamp for when the Contact was created."
+    },
+    "updated_at": {
+      "type": "string",
+      "format": "date-time",
+      "description": "ISO 8601 timestamp for the most recent Contact update."
+    }
+  },
+  "additionalProperties": true
+}

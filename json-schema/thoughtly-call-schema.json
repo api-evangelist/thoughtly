@@ -1,0 +1,80 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://api-evangelist.com/schemas/thoughtly/thoughtly-call-schema.json",
+  "title": "Thoughtly Call",
+  "description": "Schema for a Thoughtly Call (a response produced by an Agent). Captures the metadata, outcome, structured transcript, and any custom data attached during the conversation.",
+  "type": "object",
+  "properties": {
+    "id": {
+      "type": "string",
+      "description": "Unique identifier for the call."
+    },
+    "interview_id": {
+      "type": "string",
+      "description": "ID of the Agent that handled the call."
+    },
+    "contact_id": {
+      "type": "string",
+      "description": "ID of the Contact that was called or initiated the call."
+    },
+    "job_id": {
+      "type": "string",
+      "description": "ID of the bulk-call or automation job that scheduled this call."
+    },
+    "direction": {
+      "type": "string",
+      "enum": ["inbound", "outbound"],
+      "description": "Direction of the call."
+    },
+    "status": {
+      "type": "string",
+      "description": "Final status of the call (e.g. success, failure, voicemail)."
+    },
+    "outcome": {
+      "type": "string",
+      "description": "Classified outcome from the Agent (e.g. booked, qualified, DNQ, voicemail)."
+    },
+    "duration_seconds": {
+      "type": "integer",
+      "minimum": 0,
+      "description": "Duration of the call in seconds."
+    },
+    "recording_url": {
+      "type": "string",
+      "format": "uri",
+      "description": "URL to the call recording, when available."
+    },
+    "transcript": {
+      "type": "array",
+      "description": "Structured transcript array, with one entry per turn.",
+      "items": {
+        "type": "object",
+        "properties": {
+          "transcript": { "type": "string" },
+          "speaker": { "type": "string", "enum": ["ai", "user"] },
+          "createdAt": { "type": "string", "format": "date-time" },
+          "step": { "type": "integer", "description": "Step index (AI turns only)." },
+          "node_id": { "type": "string", "description": "Agent builder node ID (AI turns only)." }
+        },
+        "required": ["transcript", "speaker"]
+      }
+    },
+    "tags": {
+      "type": "array",
+      "items": { "type": "string" }
+    },
+    "metadata": {
+      "type": "object",
+      "additionalProperties": true
+    },
+    "started_at": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "ended_at": {
+      "type": "string",
+      "format": "date-time"
+    }
+  },
+  "additionalProperties": true
+}

@@ -1,0 +1,89 @@
+vocabulary: Thoughtly
+provider: Thoughtly
+providerId: thoughtly
+specificationVersion: '0.1'
+description: Operational and capability vocabulary for the Thoughtly AI voice and chat agent platform.
+created: '2026-05-24'
+modified: '2026-05-24'
+tags:
+  - Voice AI
+  - Chat AI
+  - Conversational AI
+  - Agents
+  - CRM
+  - Outbound Calling
+  - Inbound Calling
+  - SMS
+  - WhatsApp
+  - Email
+  - Webhooks
+  - Automations
+concepts:
+  - id: agent
+    label: Agent
+    aliases:
+      - Interview
+    description: An AI voice or chat workflow defined in the Thoughtly agent builder. In the API and URLs an Agent is still referred to as an `interview` for historical reasons.
+  - id: contact
+    label: Contact
+    description: A person an Agent can call, text, or email. Identified by a phone number plus optional name, email, tags, and custom attributes.
+  - id: call
+    label: Call
+    aliases:
+      - Response
+    description: A single conversation produced by an Agent — inbound or outbound — with a transcript, outcome, recording, and metadata.
+  - id: voice
+    label: Voice
+    description: The TTS voice an Agent uses. Voices can be selected from the Thoughtly library, cloned, or supplied via BYOK.
+  - id: phone-number
+    label: Phone Number
+    description: A telephony number purchased through Thoughtly (or brought via BYOC) and assigned to an Agent for inbound or outbound calling.
+  - id: automation
+    label: Automation
+    description: A no-code workflow triggered by an event (webhook, call completion, schedule, etc.) that chains together steps such as Agent calls, HTTP requests, and CRM updates.
+  - id: genius
+    label: Genius
+    description: The knowledge base feature that grounds Agent responses in customer-supplied documents and data sources.
+  - id: webhook
+    label: Webhook
+    description: An HTTP callback Thoughtly POSTs to a subscriber URL when an event such as NEW_RESPONSE or PHONE_TRANSFER fires.
+  - id: audience
+    label: Audience
+    description: A segmented group of Contacts used for bulk calls, automations, and routing.
+services:
+  - id: voice-agents
+    label: Voice Agents
+  - id: chat-agents
+    label: Chat Agents
+  - id: omnichannel
+    label: Omnichannel Follow-up
+  - id: bulk-calling
+    label: Bulk Calling
+  - id: branded-calling
+    label: Branded Calling
+  - id: voice-cloning
+    label: Voice Cloning
+  - id: byoc
+    label: Bring Your Own Carrier
+  - id: byok
+    label: Bring Your Own Key
+tools:
+  - id: agent-builder
+    label: Agent Builder
+  - id: vibes
+    label: Vibes AI Assistant
+  - id: analytics-dashboard
+    label: Analytics Dashboard
+  - id: audit-log
+    label: Audit Log
+standards:
+  - id: openapi
+    label: OpenAPI 3.0
+  - id: json-schema
+    label: JSON Schema
+  - id: json-ld
+    label: JSON-LD
+  - id: e164
+    label: E.164
+  - id: webhooks
+    label: HTTP Webhooks

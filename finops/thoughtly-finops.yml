@@ -1,0 +1,74 @@
+specification: API Commons FinOps
+specificationVersion: '0.1'
+schema: https://raw.githubusercontent.com/api-evangelist/interface-research/main/schema/api-commons.yml#/$defs/FinOps
+provider: Thoughtly
+providerId: thoughtly
+created: '2026-05-24'
+modified: '2026-05-24'
+reconciled: false
+tags:
+  - FinOps
+  - FOCUS
+  - Voice AI
+  - Usage-Based Pricing
+description: |
+  FinOps alignment for Thoughtly billing. Usage is metered in Thoughtly credits
+  with per-minute voice, per-step automation, per-message SMS, and per-month
+  phone number components. Standard paid plans use a USD subscription plus
+  metered overage; AppSumo plans use pure credit accounting.
+sources:
+  - https://docs.thoughtly.com/platform/billing
+  - https://docs.thoughtly.com/platform/settings/usage
+billingModel:
+  type: subscription + usage-based + credits
+  currency: USD
+  meteringFrequency: per-event
+  invoiceCadence: monthly
+focus:
+  ServiceName: Thoughtly Voice and Chat Agents
+  ServiceCategory: AI Services
+  ProviderName: Thoughtly
+  PublisherName: Thoughtly
+  InvoiceIssuerName: Thoughtly, Inc.
+  BillingCurrency: USD
+costDimensions:
+  - name: voice_minutes
+    description: Per-minute voice agent usage (inbound and outbound calls).
+    unit: minute
+    pricing: usd-per-minute (paid plans) or credits-per-minute (AppSumo)
+  - name: sms_messages
+    description: SMS messages sent or received via Thoughtly.
+    unit: message
+    pricing: credits-per-message
+  - name: chat_messages
+    description: Test chat / Vibes / chat agent messages.
+    unit: message
+    pricing: credits-per-message
+  - name: phone_numbers
+    description: Monthly phone number rental.
+    unit: number-month
+    pricing: 500 credits/number/month
+  - name: automation_steps
+    description: Each automation step run.
+    unit: step
+    pricing: 1 credit/step
+  - name: carrier_fees
+    description: Pass-through telephony carrier fees.
+    unit: usd
+    pricing: 200 credits per $1
+allocation:
+  perWorkspace: true
+  perAgent: true
+  perPhoneNumber: true
+reporting:
+  surfaces:
+    - Settings → Usage & Credits
+    - Settings → Subscription
+    - Analytics dashboard
+  exports:
+    - CSV usage exports (UI)
+optimizations:
+  - Tune agent conversation length to reduce per-minute voice spend.
+  - Prefer SMS or email follow-up steps when voice is not required.
+  - Use Audiences and time-of-day routing to throttle outbound spend.
+  - Move heavy bulk campaigns to Enterprise plan for negotiated per-minute rates.

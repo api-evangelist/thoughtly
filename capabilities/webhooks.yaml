@@ -1,0 +1,70 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: Thoughtly — Webhooks
+  description: 'Thoughtly Webhooks capability. List active webhook subscriptions, subscribe to NEW_RESPONSE / PHONE_TRANSFER events, unsubscribe, and trigger Webhook-driven Automations.'
+  tags:
+    - Thoughtly
+    - Webhooks
+    - Events
+    - Automations
+  created: '2026-05-24'
+  modified: '2026-05-24'
+binds:
+  - namespace: env
+    keys:
+      THOUGHTLY_API_TOKEN: THOUGHTLY_API_TOKEN
+      THOUGHTLY_TEAM_ID: THOUGHTLY_TEAM_ID
+capability:
+  consumes:
+    - type: http
+      namespace: thoughtly-webhooks
+      baseUri: https://api.thoughtly.com
+      description: Thoughtly Webhooks HTTP surface.
+      resources:
+        - name: webhooks
+          path: /webhooks
+          operations:
+            - name: getWebhooks
+              method: GET
+              description: List all currently active webhook subscriptions.
+        - name: webhook-subscribe
+          path: /webhooks/subscribe
+          operations:
+            - name: subscribeWebhook
+              method: POST
+              description: Subscribe to a webhook event (NEW_RESPONSE or PHONE_TRANSFER).
+              inputParameters:
+                - name: body
+                  in: body
+                  type: object
+                  required: true
+        - name: webhook-unsubscribe
+          path: /webhooks/unsubscribe
+          operations:
+            - name: unsubscribeWebhook
+              method: DELETE
+              description: Unsubscribe a webhook by event type and URL.
+              inputParameters:
+                - name: body
+                  in: body
+                  type: object
+                  required: true
+        - name: webhook-automation
+          path: /webhook/automation/{automation_id}
+          operations:
+            - name: triggerAutomation
+              method: POST
+              description: Trigger a Webhook-driven Automation.
+              inputParameters:
+                - name: automation_id
+                  in: path
+                  type: string
+                  required: true
+                - name: body
+                  in: body
+                  type: object
+      authentication:
+        type: apikey
+        key: x-api-token
+        value: '{{env.THOUGHTLY_API_TOKEN}}'
+        placement: header

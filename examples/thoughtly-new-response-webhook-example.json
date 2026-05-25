@@ -1,0 +1,53 @@
+{
+  "description": "Example payload Thoughtly POSTs to your subscriber URL when a NEW_RESPONSE event fires (a call has completed).",
+  "headers": {
+    "Content-Type": "application/json",
+    "User-Agent": "Thoughtly-Webhook/1.0"
+  },
+  "body": {
+    "event": "NEW_RESPONSE",
+    "call": {
+      "id": "call_01J0...",
+      "interview_id": "agt_01HZ...",
+      "contact_id": "cnt_01HXY...",
+      "direction": "outbound",
+      "status": "success",
+      "outcome": "qualified",
+      "duration_seconds": 184,
+      "recording_url": "https://recordings.thoughtly.com/call_01J0....mp3",
+      "started_at": "2026-05-24T15:31:10Z",
+      "ended_at": "2026-05-24T15:34:14Z"
+    },
+    "agent": {
+      "id": "agt_01HZ...",
+      "title": "Spring Outbound — Tier 1",
+      "phone_number": "+14155557788"
+    },
+    "transcript": [
+      {
+        "transcript": "Hi, this is Maya from Acme. Is now a good time?",
+        "speaker": "ai",
+        "createdAt": "2026-05-24T15:31:14Z",
+        "step": 1,
+        "node_id": "node_intro"
+      },
+      {
+        "transcript": "Yes, what's this about?",
+        "speaker": "user",
+        "createdAt": "2026-05-24T15:31:18Z"
+      },
+      {
+        "transcript": "You requested a demo of our analytics platform. Quick question — how many seats are you looking for?",
+        "speaker": "ai",
+        "createdAt": "2026-05-24T15:31:22Z",
+        "step": 2,
+        "node_id": "node_qualify_seats"
+      }
+    ],
+    "custom_fields": {
+      "campaign": "spring-outbound",
+      "source": "hubspot",
+      "lead_score": "82"
+    }
+  }
+}

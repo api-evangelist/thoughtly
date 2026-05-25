@@ -1,0 +1,19 @@
+{
+  "name": "ThoughtlyContact",
+  "title": "Thoughtly Contact Structure",
+  "description": "Structural description of the Thoughtly Contact entity — fields, types, and constraints.",
+  "version": "1.0.0",
+  "namespace": "thoughtly",
+  "entity": "Contact",
+  "fields": [
+    { "name": "id", "type": "string", "required": false, "description": "Server-assigned identifier." },
+    { "name": "phone_number", "type": "string", "required": true, "description": "E.164 phone number." },
+    { "name": "name", "type": "string", "required": false },
+    { "name": "email", "type": "string", "format": "email", "required": false },
+    { "name": "country_code", "type": "string", "required": false },
+    { "name": "tags", "type": "array<string>", "required": false },
+    { "name": "attributes", "type": "object", "required": false, "description": "Arbitrary key/value map." },
+    { "name": "created_at", "type": "string", "format": "date-time", "required": false },
+    { "name": "updated_at", "type": "string", "format": "date-time", "required": false }
+  ]
+}

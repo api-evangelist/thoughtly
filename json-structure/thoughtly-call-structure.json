@@ -1,0 +1,35 @@
+{
+  "name": "ThoughtlyCall",
+  "title": "Thoughtly Call Structure",
+  "description": "Structural description of the Thoughtly Call (Agent response) entity.",
+  "version": "1.0.0",
+  "namespace": "thoughtly",
+  "entity": "Call",
+  "fields": [
+    { "name": "id", "type": "string", "required": true },
+    { "name": "interview_id", "type": "string", "required": true, "description": "Agent ID." },
+    { "name": "contact_id", "type": "string", "required": false },
+    { "name": "job_id", "type": "string", "required": false },
+    { "name": "direction", "type": "enum<inbound,outbound>", "required": true },
+    { "name": "status", "type": "string", "required": false },
+    { "name": "outcome", "type": "string", "required": false },
+    { "name": "duration_seconds", "type": "integer", "required": false },
+    { "name": "recording_url", "type": "string", "format": "uri", "required": false },
+    { "name": "transcript", "type": "array<TranscriptTurn>", "required": false },
+    { "name": "tags", "type": "array<string>", "required": false },
+    { "name": "metadata", "type": "object", "required": false },
+    { "name": "started_at", "type": "string", "format": "date-time", "required": false },
+    { "name": "ended_at", "type": "string", "format": "date-time", "required": false }
+  ],
+  "subtypes": {
+    "TranscriptTurn": {
+      "fields": [
+        { "name": "transcript", "type": "string", "required": true },
+        { "name": "speaker", "type": "enum<ai,user>", "required": true },
+        { "name": "createdAt", "type": "string", "format": "date-time", "required": true },
+        { "name": "step", "type": "integer", "required": false, "description": "AI turns only." },
+        { "name": "node_id", "type": "string", "required": false, "description": "Agent builder node id; AI turns only." }
+      ]
+    }
+  }
+}

@@ -1,0 +1,59 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://api-evangelist.com/schemas/thoughtly/thoughtly-agent-schema.json",
+  "title": "Thoughtly Agent",
+  "description": "Schema for the Thoughtly Agent (formerly Interview) object. Agents are AI voice or chat workflows configured in the Thoughtly agent builder.",
+  "type": "object",
+  "properties": {
+    "id": {
+      "type": "string",
+      "description": "Unique identifier for the Agent (also referred to as interview_id)."
+    },
+    "title": {
+      "type": "string",
+      "description": "Human-readable title of the Agent."
+    },
+    "status": {
+      "type": "string",
+      "enum": ["ACTIVE", "ARCHIVED"],
+      "description": "Lifecycle status of the Agent."
+    },
+    "channel": {
+      "type": "string",
+      "enum": ["voice", "chat", "omnichannel"],
+      "description": "Primary channel handled by the Agent."
+    },
+    "phone_number": {
+      "type": "string",
+      "description": "Phone number assigned to the Agent for inbound or outbound calls."
+    },
+    "voice_id": {
+      "type": "string",
+      "description": "Identifier of the voice (TTS) used by the Agent."
+    },
+    "nodes": {
+      "type": "array",
+      "description": "Decision-tree nodes that define the Agent's conversation flow.",
+      "items": { "type": "object", "additionalProperties": true }
+    },
+    "variables": {
+      "type": "object",
+      "additionalProperties": true,
+      "description": "Variables referenced inside the Agent script."
+    },
+    "outcomes": {
+      "type": "array",
+      "items": { "type": "string" },
+      "description": "Labeled outcomes the Agent can classify a call into (e.g., booked, qualified, voicemail, DNQ)."
+    },
+    "created_at": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "updated_at": {
+      "type": "string",
+      "format": "date-time"
+    }
+  },
+  "additionalProperties": true
+}

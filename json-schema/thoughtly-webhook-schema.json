@@ -1,0 +1,78 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://api-evangelist.com/schemas/thoughtly/thoughtly-webhook-schema.json",
+  "title": "Thoughtly Webhook",
+  "description": "Schema for Thoughtly Webhook subscription and event payload objects.",
+  "type": "object",
+  "definitions": {
+    "WebhookSubscription": {
+      "type": "object",
+      "required": ["type", "url"],
+      "properties": {
+        "type": {
+          "type": "string",
+          "enum": [
+            "NEW_RESPONSE",
+            "PHONE_TRANSFER",
+            "FOLDER_NEW_RESPONSE",
+            "FOLDER_PHONE_TRANSFER",
+            "ACTION_FAILED"
+          ],
+          "description": "Webhook event type."
+        },
+        "url": {
+          "type": "string",
+          "format": "uri",
+          "description": "Callback URL where events are POSTed."
+        },
+        "data": {
+          "type": "string",
+          "nullable": true,
+          "description": "Optional opaque data sent back with each event delivery."
+        }
+      }
+    },
+    "WebhookEventPayload": {
+      "type": "object",
+      "description": "Payload sent to subscriber URLs when a Thoughtly event fires.",
+      "properties": {
+        "event": {
+          "type": "string",
+          "enum": [
+            "NEW_RESPONSE",
+            "PHONE_TRANSFER",
+            "FOLDER_NEW_RESPONSE",
+            "FOLDER_PHONE_TRANSFER",
+            "ACTION_FAILED"
+          ]
+        },
+        "call": { "$ref": "https://api-evangelist.com/schemas/thoughtly/thoughtly-call-schema.json" },
+        "agent": {
+          "type": "object",
+          "properties": {
+            "id": { "type": "string" },
+            "title": { "type": "string" },
+            "phone_number": { "type": "string" }
+          }
+        },
+        "transcript": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "transcript": { "type": "string" },
+              "speaker": { "type": "string", "enum": ["ai", "user"] },
+              "createdAt": { "type": "string", "format": "date-time" },
+              "step": { "type": "integer" },
+              "node_id": { "type": "string" }
+            }
+          }
+        },
+        "custom_fields": {
+          "type": "object",
+          "additionalProperties": true
+        }
+      }
+    }
+  }
+}

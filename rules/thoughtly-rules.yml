@@ -1,0 +1,68 @@
+extends:
+  - spectral:oas
+documentationUrl: https://docs.thoughtly.com/developers
+rules:
+  thoughtly-server-url:
+    description: All Thoughtly API specs must declare the canonical production server.
+    message: Servers must include https://api.thoughtly.com
+    severity: error
+    given: $.servers[*].url
+    then:
+      function: pattern
+      functionOptions:
+        match: '^https://api\.thoughtly\.com'
+
+  thoughtly-require-api-token-security:
+    description: Every operation must require the ApiKeyAuth (x-api-token) security scheme except public webhook trigger endpoints.
+    message: Operation must require ApiKeyAuth security.
+    severity: warn
+    given: $.paths.*[?(@.operationId)]
+    then:
+      field: security
+      function: truthy
+
+  thoughtly-summary-title-case:
+    description: Operation summaries should use Title Case (the API Evangelist convention).
+    severity: warn
+    given: $.paths.*[?(@.summary)].summary
+    then:
+      function: pattern
+      functionOptions:
+        match: '^[A-Z][A-Za-z0-9]*(\s+[A-Z][A-Za-z0-9]*)*$'
+
+  thoughtly-generic-response-schema:
+    description: 2xx JSON responses should reference the GenericResponse schema.
+    severity: hint
+    given: $.paths.*.*.responses.200.content.application/json.schema
+    then:
+      function: schema
+      functionOptions:
+        schema:
+          type: object
+          properties:
+            $ref:
+              type: string
+              pattern: '#/components/schemas/GenericResponse'
+
+  thoughtly-tag-known:
+    description: Operations should be tagged with one of the documented tag categories.
+    severity: warn
+    given: $.paths.*.*.tags[*]
+    then:
+      function: enumeration
+      functionOptions:
+        values:
+          - agent
+          - contact
+          - user
+          - webhooks
+
+  thoughtly-operation-id:
+    description: Every operation must declare a camelCase operationId.
+    severity: warn
+    given: $.paths.*[?(@.summary)]
+    then:
+      field: operationId
+      function: pattern
+      functionOptions:
+        match: '^[a-z][A-Za-z0-9]*$'

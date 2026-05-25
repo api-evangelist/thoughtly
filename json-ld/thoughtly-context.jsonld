@@ -1,0 +1,64 @@
+{
+  "@context": {
+    "@version": 1.1,
+    "@vocab": "https://schema.org/",
+    "thoughtly": "https://api.thoughtly.com/",
+    "schema": "https://schema.org/",
+    "xsd": "http://www.w3.org/2001/XMLSchema#",
+    "dcterms": "http://purl.org/dc/terms/",
+
+    "Contact": {
+      "@id": "thoughtly:Contact",
+      "@context": {
+        "id": { "@id": "thoughtly:Contact/id", "@type": "xsd:string" },
+        "phone_number": { "@id": "thoughtly:Contact/phoneNumber", "@type": "xsd:string" },
+        "name": { "@id": "thoughtly:Contact/name", "@type": "xsd:string" },
+        "email": { "@id": "thoughtly:Contact/email", "@type": "xsd:string" },
+        "country_code": { "@id": "thoughtly:Contact/countryCode", "@type": "xsd:string" },
+        "tags": { "@id": "thoughtly:Contact/tags", "@container": "@list" },
+        "attributes": { "@id": "thoughtly:Contact/attributes" },
+        "created_at": { "@id": "thoughtly:Contact/createdAt", "@type": "xsd:dateTime" },
+        "updated_at": { "@id": "thoughtly:Contact/updatedAt", "@type": "xsd:dateTime" }
+      }
+    },
+
+    "Agent": {
+      "@id": "thoughtly:Agent",
+      "@context": {
+        "id": { "@id": "thoughtly:Agent/id", "@type": "xsd:string" },
+        "title": { "@id": "thoughtly:Agent/title", "@type": "xsd:string" },
+        "status": { "@id": "thoughtly:Agent/status", "@type": "xsd:string" },
+        "channel": { "@id": "thoughtly:Agent/channel", "@type": "xsd:string" },
+        "phone_number": { "@id": "thoughtly:Agent/phoneNumber", "@type": "xsd:string" },
+        "voice_id": { "@id": "thoughtly:Agent/voiceId", "@type": "xsd:string" },
+        "outcomes": { "@id": "thoughtly:Agent/outcomes", "@container": "@list" }
+      }
+    },
+
+    "Call": {
+      "@id": "thoughtly:Call",
+      "@context": {
+        "id": { "@id": "thoughtly:Call/id", "@type": "xsd:string" },
+        "interview_id": { "@id": "thoughtly:Call/interviewId", "@type": "xsd:string" },
+        "contact_id": { "@id": "thoughtly:Call/contactId", "@type": "xsd:string" },
+        "direction": { "@id": "thoughtly:Call/direction", "@type": "xsd:string" },
+        "status": { "@id": "thoughtly:Call/status", "@type": "xsd:string" },
+        "outcome": { "@id": "thoughtly:Call/outcome", "@type": "xsd:string" },
+        "duration_seconds": { "@id": "thoughtly:Call/durationSeconds", "@type": "xsd:integer" },
+        "recording_url": { "@id": "thoughtly:Call/recordingUrl", "@type": "xsd:anyURI" },
+        "transcript": { "@id": "thoughtly:Call/transcript", "@container": "@list" },
+        "started_at": { "@id": "thoughtly:Call/startedAt", "@type": "xsd:dateTime" },
+        "ended_at": { "@id": "thoughtly:Call/endedAt", "@type": "xsd:dateTime" }
+      }
+    },
+
+    "Webhook": {
+      "@id": "thoughtly:Webhook",
+      "@context": {
+        "type": { "@id": "thoughtly:Webhook/type", "@type": "xsd:string" },
+        "url": { "@id": "thoughtly:Webhook/url", "@type": "xsd:anyURI" },
+        "data": { "@id": "thoughtly:Webhook/data", "@type": "xsd:string" }
+      }
+    }
+  }
+}

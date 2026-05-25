@@ -1,0 +1,165 @@
+specification: API Commons Plans
+specificationVersion: '0.1'
+schema: https://raw.githubusercontent.com/api-evangelist/interface-research/main/schema/api-commons.yml#/$defs/Plans
+provider: Thoughtly
+providerId: thoughtly
+created: '2026-05-24'
+modified: '2026-05-24'
+reconciled: false
+tags:
+  - Voice AI
+  - Chat AI
+  - Conversational AI
+  - Usage-Based Pricing
+description: |
+  Plans and credit-based pricing for the Thoughtly AI voice and chat agent platform.
+  Standard paid plans are managed by Thoughtly sales — exact monthly prices beyond
+  the Free and Starter tiers are not published; the Starter / Enterprise dollar
+  amounts and the per-minute / per-step credit rates below come from third-party
+  pricing summaries and the AppSumo billing documentation.
+sources:
+  - https://docs.thoughtly.com/platform/billing
+  - https://thoughtly.com/
+  - https://docs.thoughtly.com/platform/settings/usage
+plans:
+  - id: thoughtly-free
+    name: Free
+    type: free
+    description: Free tier with 10 minutes/month and unlimited seats. Includes a 14-day full-feature trial.
+    entries:
+      - label: Included minutes
+        name: included_minutes
+        type: included
+        metric: minutes
+        limit: 10
+        timeFrame: month
+        geo: global
+        unit: 1
+        price: '0.00'
+        userMultiplied: false
+      - label: Seats
+        name: seats
+        type: included
+        metric: seat
+        limit: -1
+        timeFrame: month
+        geo: global
+        unit: 1
+        price: '0.00'
+        userMultiplied: false
+  - id: thoughtly-starter
+    name: Starter
+    type: subscription
+    description: Starter plan — approximately $30/month for 300 minutes; includes core agent builder and inbound/outbound calling.
+    entries:
+      - label: Monthly subscription
+        name: subscription
+        type: recurring
+        metric: subscription
+        limit: 1
+        timeFrame: month
+        geo: global
+        unit: 1
+        price: '30.00'
+        userMultiplied: false
+      - label: Included minutes
+        name: included_minutes
+        type: included
+        metric: minutes
+        limit: 300
+        timeFrame: month
+        geo: global
+        unit: 1
+        price: '0.00'
+        userMultiplied: false
+      - label: Additional voice minutes
+        name: overage_voice
+        type: metered
+        metric: minutes
+        limit: -1
+        timeFrame: usage
+        geo: global
+        unit: 1
+        price: '0.09'
+        userMultiplied: false
+  - id: thoughtly-enterprise
+    name: Enterprise
+    type: enterprise
+    description: Custom enterprise pricing for high-volume workloads. Includes advanced support, branded calling, SSO, audit log, and BYOC/BYOK options. Contact Thoughtly sales.
+    entries:
+      - label: Custom contract
+        name: custom
+        type: recurring
+        metric: contract
+        limit: 1
+        timeFrame: year
+        geo: global
+        unit: 1
+        price: 'Call'
+        userMultiplied: false
+  - id: thoughtly-appsumo
+    name: AppSumo Lifetime
+    type: lifetime
+    description: AppSumo-distributed lifetime plan billed in Thoughtly credits. Credit consumption rates documented below.
+    entries:
+      - label: Voice agent minute
+        name: voice_minute
+        type: metered
+        metric: credits
+        limit: -1
+        timeFrame: usage
+        geo: global
+        unit: 1
+        price: '10'
+        userMultiplied: false
+      - label: Phone number per month
+        name: phone_number
+        type: metered
+        metric: credits
+        limit: -1
+        timeFrame: month
+        geo: global
+        unit: 1
+        price: '500'
+        userMultiplied: false
+      - label: Automation step
+        name: automation_step
+        type: metered
+        metric: credits
+        limit: -1
+        timeFrame: usage
+        geo: global
+        unit: 1
+        price: '1'
+        userMultiplied: false
+      - label: Test agent chat message
+        name: chat_test
+        type: metered
+        metric: credits
+        limit: -1
+        timeFrame: usage
+        geo: global
+        unit: 1
+        price: '3'
+        userMultiplied: false
+      - label: SMS message
+        name: sms
+        type: metered
+        metric: credits
+        limit: -1
+        timeFrame: usage
+        geo: global
+        unit: 1
+        price: '8'
+        userMultiplied: false
+      - label: Carrier fees passthrough
+        name: carrier_fees
+        type: metered
+        metric: credits
+        limit: -1
+        timeFrame: usage
+        geo: global
+        unit: 1
+        price: '200'
+        userMultiplied: false
+        description: 200 credits per $1 of carrier passthrough cost.

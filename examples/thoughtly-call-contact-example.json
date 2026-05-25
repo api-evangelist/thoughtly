@@ -1,0 +1,32 @@
+{
+  "request": {
+    "method": "POST",
+    "url": "https://api.thoughtly.com/contact/call",
+    "headers": {
+      "x-api-token": "tk_live_••••",
+      "team_id": "team_••••",
+      "Content-Type": "application/json"
+    },
+    "body": {
+      "contact_id": "cnt_01HXY...",
+      "interview_id": "agt_01HZ...",
+      "metadata": {
+        "campaign": "spring-outbound",
+        "source": "hubspot",
+        "lead_score": "82"
+      }
+    }
+  },
+  "response": {
+    "status": 200,
+    "body": {
+      "data": {
+        "call_id": "call_01J0...",
+        "status": "queued",
+        "interview_id": "agt_01HZ...",
+        "contact_id": "cnt_01HXY..."
+      },
+      "error": null
+    }
+  }
+}

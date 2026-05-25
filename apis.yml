@@ -1,0 +1,263 @@
+aid: thoughtly
+name: Thoughtly
+url: https://raw.githubusercontent.com/api-evangelist/thoughtly/refs/heads/main/apis.yml
+description: |
+  Thoughtly is an AI voice and chat agent platform that helps revenue and support
+  teams contact every lead across every channel — voice, SMS, email, WhatsApp,
+  and iMessage. The product combines a no-code agent designer (decision-tree
+  builder, Vibes AI assistant, Genius knowledge base), a managed telephony layer
+  (purchased numbers, branded calling, BYOC, voice cloning), and a public REST
+  API for programmatically creating contacts, triggering outbound calls, and
+  subscribing to call-completion webhooks. Thoughtly integrates natively with
+  Salesforce, HubSpot, Zoho, GoHighLevel, Keap, Pipedrive, Attio, Calendly,
+  Acuity, Cal.com, Mindbody, Gmail, Slack, Zendesk, Shopify, Zapier, and Make.
+type: Index
+position: Provider
+access: 3rd-Party
+image: https://kinlane-productions.s3.amazonaws.com/apis-json/apis-json-logo.jpg
+tags:
+  - Voice AI
+  - Chat AI
+  - Conversational AI
+  - AI Agents
+  - Outbound Calling
+  - Inbound Calling
+  - Lead Conversion
+  - SMS
+  - WhatsApp
+  - CRM
+  - Telephony
+created: '2026-05-24'
+modified: '2026-05-24'
+specificationVersion: '0.20'
+apis:
+  - aid: thoughtly:thoughtly-api
+    name: Thoughtly API
+    description: |
+      Public REST API for the Thoughtly platform. Manage Agents (called
+      "interviews" in the API), create and update Contacts, trigger outbound
+      calls, search call responses, subscribe to webhook events
+      (NEW_RESPONSE, PHONE_TRANSFER, etc.), and trigger Webhook-driven
+      Automations. Authentication uses two headers: x-api-token and team_id.
+    humanURL: https://docs.thoughtly.com/developers
+    baseURL: https://api.thoughtly.com
+    tags:
+      - Voice AI
+      - Agents
+      - Contacts
+      - Calls
+      - Webhooks
+    properties:
+      - url: https://docs.thoughtly.com/developers
+        type: Documentation
+      - url: https://docs.thoughtly.com/api-reference
+        type: Documentation
+      - url: https://docs.thoughtly.com/api-reference/openapi.json
+        type: OpenAPI
+      - url: openapi/thoughtly-api-openapi.yml
+        type: OpenAPI
+      - url: rules/thoughtly-rules.yml
+        type: SpectralRules
+      - url: json-schema/thoughtly-contact-schema.json
+        type: JSONSchema
+      - url: json-schema/thoughtly-agent-schema.json
+        type: JSONSchema
+      - url: json-schema/thoughtly-call-schema.json
+        type: JSONSchema
+      - url: json-schema/thoughtly-webhook-schema.json
+        type: JSONSchema
+      - url: json-structure/thoughtly-contact-structure.json
+        type: JSONStructure
+      - url: json-structure/thoughtly-call-structure.json
+        type: JSONStructure
+      - url: json-ld/thoughtly-context.jsonld
+        type: JSONLD
+      - url: examples/thoughtly-create-contact-example.json
+        type: Examples
+      - url: examples/thoughtly-call-contact-example.json
+        type: Examples
+      - url: examples/thoughtly-subscribe-webhook-example.json
+        type: Examples
+      - url: examples/thoughtly-new-response-webhook-example.json
+        type: Examples
+      - url: capabilities/agents.yaml
+        type: NaftikoCapability
+      - url: capabilities/contacts.yaml
+        type: NaftikoCapability
+      - url: capabilities/webhooks.yaml
+        type: NaftikoCapability
+      - url: https://docs.thoughtly.com/integrations/webhooks
+        type: Webhooks
+      - url: https://docs.thoughtly.com/automations/getting-started
+        type: Documentation
+        name: Automations
+      - url: https://app.thoughtly.com/settings/developer
+        type: Authentication
+common:
+  - type: Website
+    url: https://thoughtly.com
+  - type: Portal
+    url: https://docs.thoughtly.com
+  - type: Documentation
+    url: https://docs.thoughtly.com/developers
+  - type: Documentation
+    url: https://docs.thoughtly.com/api-reference
+  - type: GettingStarted
+    url: https://docs.thoughtly.com/getting-started/quick-start
+  - type: SignUp
+    url: https://app.thoughtly.com/signup
+  - type: Login
+    url: https://app.thoughtly.com/login
+  - type: Authentication
+    url: https://app.thoughtly.com/settings/developer
+  - type: Pricing
+    url: https://docs.thoughtly.com/platform/billing
+  - type: Plans
+    url: plans/thoughtly-plans-pricing.yml
+  - type: RateLimits
+    url: rate-limits/thoughtly-rate-limits.yml
+  - type: FinOps
+    url: finops/thoughtly-finops.yml
+  - type: ChangeLog
+    url: https://docs.thoughtly.com/support/changelog
+  - type: Support
+    url: https://docs.thoughtly.com/support/getting-help
+  - type: FAQ
+    url: https://docs.thoughtly.com/resources/faq
+  - type: Glossary
+    url: https://docs.thoughtly.com/resources/glossary/overview
+  - type: Whitepapers
+    url: https://docs.thoughtly.com/resources/whitepapers/overview
+  - type: VideoLibrary
+    url: https://docs.thoughtly.com/resources/video-library
+  - type: Integrations
+    url: https://docs.thoughtly.com/integrations/getting-started
+  - type: Webhooks
+    url: https://docs.thoughtly.com/integrations/webhooks
+  - type: Automations
+    url: https://docs.thoughtly.com/automations/getting-started
+  - type: KnowledgeBase
+    url: https://docs.thoughtly.com/genius/getting-started
+  - type: AgentBuilder
+    url: https://docs.thoughtly.com/build/agent-builder/overview
+  - type: PhoneNumbers
+    url: https://docs.thoughtly.com/phone-number/getting-started
+  - type: Voices
+    url: https://docs.thoughtly.com/agents/voices
+  - type: BlogPost
+    url: https://thoughtly.com/blog
+    name: Thoughtly Blog
+  - type: LinkedIn
+    url: https://www.linkedin.com/company/thoughtly-ai/
+  - type: Twitter
+    url: https://twitter.com/thoughtlyai
+  - type: AffiliateProgram
+    url: https://docs.thoughtly.com/promptbooks/joining-the-thoughtly-affiliate-program
+  - type: ReferralProgram
+    url: https://docs.thoughtly.com/support/referral-program
+  - type: Promptbooks
+    url: https://docs.thoughtly.com/promptbooks/browse
+  - type: Vocabulary
+    url: vocabulary/thoughtly-vocabulary.yml
+  - type: Integration
+    url: https://docs.thoughtly.com/integrations/crm/salesforce
+    name: Salesforce
+  - type: Integration
+    url: https://docs.thoughtly.com/integrations/crm/hubspot
+    name: HubSpot
+  - type: Integration
+    url: https://docs.thoughtly.com/integrations/crm/zoho
+    name: Zoho CRM
+  - type: Integration
+    url: https://docs.thoughtly.com/integrations/crm/highlevel
+    name: GoHighLevel
+  - type: Integration
+    url: https://docs.thoughtly.com/integrations/crm/pipedrive
+    name: Pipedrive
+  - type: Integration
+    url: https://docs.thoughtly.com/integrations/crm/attio
+    name: Attio
+  - type: Integration
+    url: https://docs.thoughtly.com/integrations/crm/keap
+    name: Keap
+  - type: Integration
+    url: https://docs.thoughtly.com/integrations/scheduling/calendly
+    name: Calendly
+  - type: Integration
+    url: https://docs.thoughtly.com/integrations/scheduling/acuity
+    name: Acuity Scheduling
+  - type: Integration
+    url: https://docs.thoughtly.com/integrations/scheduling/cal-com
+    name: Cal.com
+  - type: Integration
+    url: https://docs.thoughtly.com/integrations/scheduling/mindbody
+    name: Mindbody
+  - type: Integration
+    url: https://docs.thoughtly.com/integrations/communication/gmail
+    name: Gmail
+  - type: Integration
+    url: https://docs.thoughtly.com/integrations/communication/slack
+    name: Slack
+  - type: Integration
+    url: https://docs.thoughtly.com/integrations/communication/whatsapp-business
+    name: WhatsApp Business
+  - type: Integration
+    url: https://docs.thoughtly.com/integrations/ticketing/zendesk
+    name: Zendesk
+  - type: Integration
+    url: https://docs.thoughtly.com/integrations/e-commerce/shopify
+    name: Shopify
+  - type: Integration
+    url: https://docs.thoughtly.com/integrations/productivity/google-sheets
+    name: Google Sheets
+  - type: Integration
+    url: https://docs.thoughtly.com/integrations/productivity/airtable
+    name: Airtable
+  - type: Integration
+    url: https://docs.thoughtly.com/integrations/productivity/typeform
+    name: Typeform
+  - type: Integration
+    url: https://docs.thoughtly.com/integrations/productivity/trello
+    name: Trello
+  - type: Integration
+    url: https://docs.thoughtly.com/integrations/productivity/smartsheet
+    name: Smartsheet
+  - type: Integration
+    url: https://docs.thoughtly.com/integrations/productivity/zoom
+    name: Zoom
+  - type: Integration
+    url: https://docs.thoughtly.com/integrations/automations/zapier
+    name: Zapier
+  - type: Integration
+    url: https://docs.thoughtly.com/integrations/automations/make
+    name: Make
+  - type: Features
+    data:
+      - No-code Agent Builder with decision-tree nodes, variables, outcomes, and branching logic
+      - Vibes AI assistant for generating and editing agent workflows from natural language
+      - Genius knowledge base (RAG) for grounding agents in customer documents and data
+      - Voice library plus voice cloning and Bring Your Own Key (BYOK) TTS
+      - Branded calling, Bring Your Own Carrier (BYOC), and phone number purchase/management
+      - Public REST API for agents, contacts, calls, webhooks, and automations
+      - Webhook events NEW_RESPONSE, PHONE_TRANSFER, FOLDER_NEW_RESPONSE, FOLDER_PHONE_TRANSFER, ACTION_FAILED
+      - Webhook-triggered Automations for chaining Agent calls with HTTP, CRM, SMS, and email steps
+      - Omnichannel agents — voice → SMS → email → WhatsApp follow-up cadence
+      - Bulk upload + bulk call workflows with Audiences segmentation
+      - Multilingual agents and call screening bypass
+      - Mid-call SMS and mid-call website lookup actions
+      - Analytics dashboard, audit log, and call history with outcome classification
+      - Workspaces with role-based access and team invites
+      - Native integrations with 25+ tools including Salesforce, HubSpot, Zapier, Make, and Shopify
+      - 100 requests per minute API rate limit; subscriber 429s retried once with Retry-After
+    sources:
+      - https://thoughtly.com/
+      - https://docs.thoughtly.com/developers
+      - https://docs.thoughtly.com/api-reference
+      - https://docs.thoughtly.com/integrations/getting-started
+      - https://docs.thoughtly.com/integrations/webhooks
+      - https://docs.thoughtly.com/platform/billing
+    updated: '2026-05-24'
+maintainers:
+  - FN: Kin Lane
+    email: kin@apievangelist.com
+    url: https://apievangelist.com

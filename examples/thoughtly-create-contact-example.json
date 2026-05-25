@@ -1,0 +1,40 @@
+{
+  "request": {
+    "method": "POST",
+    "url": "https://api.thoughtly.com/contact/create",
+    "headers": {
+      "x-api-token": "tk_live_••••",
+      "team_id": "team_••••",
+      "Content-Type": "application/json"
+    },
+    "body": {
+      "phone_number": "+14155550123",
+      "name": "Avery Lee",
+      "email": "avery@example.com",
+      "country_code": "US",
+      "tags": ["lead", "demo-request"],
+      "attributes": {
+        "company": "Acme Corp",
+        "plan_interest": "starter"
+      }
+    }
+  },
+  "response": {
+    "status": 200,
+    "body": {
+      "data": {
+        "id": "cnt_01HXY...",
+        "phone_number": "+14155550123",
+        "name": "Avery Lee",
+        "email": "avery@example.com",
+        "tags": ["lead", "demo-request"],
+        "attributes": {
+          "company": "Acme Corp",
+          "plan_interest": "starter"
+        },
+        "created_at": "2026-05-24T15:30:00Z"
+      },
+      "error": null
+    }
+  }
+}

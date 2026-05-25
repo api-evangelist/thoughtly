@@ -1,0 +1,27 @@
+{
+  "request": {
+    "method": "POST",
+    "url": "https://api.thoughtly.com/webhooks/subscribe",
+    "headers": {
+      "x-api-token": "tk_live_••••",
+      "team_id": "team_••••",
+      "Content-Type": "application/json"
+    },
+    "body": {
+      "type": "NEW_RESPONSE",
+      "url": "https://example.com/hooks/thoughtly/call-complete"
+    }
+  },
+  "response": {
+    "status": 200,
+    "body": {
+      "data": {
+        "id": "wh_01J1...",
+        "type": "NEW_RESPONSE",
+        "url": "https://example.com/hooks/thoughtly/call-complete",
+        "created_at": "2026-05-24T15:31:00Z"
+      },
+      "error": null
+    }
+  }
+}

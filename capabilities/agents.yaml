@@ -1,0 +1,79 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: Thoughtly — Agents
+  description: 'Thoughtly Agents (Interviews) capability. List voice/chat agents and search the calls (responses) they have produced.'
+  tags:
+    - Thoughtly
+    - Agents
+    - Voice AI
+  created: '2026-05-24'
+  modified: '2026-05-24'
+binds:
+  - namespace: env
+    keys:
+      THOUGHTLY_API_TOKEN: THOUGHTLY_API_TOKEN
+      THOUGHTLY_TEAM_ID: THOUGHTLY_TEAM_ID
+capability:
+  consumes:
+    - type: http
+      namespace: thoughtly-agents
+      baseUri: https://api.thoughtly.com
+      description: Thoughtly Agents (Interviews) HTTP surface.
+      resources:
+        - name: interview
+          path: /interview
+          operations:
+            - name: getAgents
+              method: GET
+              description: List Agents (Interviews) in the workspace.
+              outputRawFormat: json
+              outputParameters:
+                - name: result
+                  type: object
+                  value: $.
+              inputParameters:
+                - name: search
+                  in: query
+                  type: string
+                - name: status
+                  in: query
+                  type: string
+                - name: sort
+                  in: query
+                  type: string
+                - name: page
+                  in: query
+                  type: integer
+                - name: limit
+                  in: query
+                  type: integer
+        - name: interview-responses
+          path: /interview/{interview_id}/responses
+          operations:
+            - name: searchCalls
+              method: GET
+              description: Search calls (responses) belonging to an Agent.
+              outputRawFormat: json
+              outputParameters:
+                - name: result
+                  type: object
+                  value: $.
+              inputParameters:
+                - name: interview_id
+                  in: path
+                  type: string
+                  required: true
+                - name: search
+                  in: query
+                  type: string
+                - name: page
+                  in: query
+                  type: integer
+                - name: limit
+                  in: query
+                  type: integer
+      authentication:
+        type: apikey
+        key: x-api-token
+        value: '{{env.THOUGHTLY_API_TOKEN}}'
+        placement: header
