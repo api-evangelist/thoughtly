@@ -1,0 +1,346 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Thoughtly API",
+    "version": "1.0.0"
+  },
+  "request": {
+    "auth": {
+      "type": "apikey",
+      "key": "x-api-token",
+      "value": "{{x-api-token}}",
+      "placement": "header"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "agent",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Get Agents",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.thoughtly.com/interview",
+            "params": [
+              {
+                "name": "search",
+                "value": "",
+                "type": "query",
+                "description": "Search term to filter Agents by title, name, or other properties."
+              },
+              {
+                "name": "status",
+                "value": "",
+                "type": "query",
+                "description": "Filter Agents by their current status."
+              },
+              {
+                "name": "sort",
+                "value": "",
+                "type": "query",
+                "description": "Sort order for Agents."
+              },
+              {
+                "name": "all_interviews",
+                "value": "",
+                "type": "query",
+                "description": "Set true to include archived Agents."
+              },
+              {
+                "name": "page",
+                "value": "",
+                "type": "query",
+                "description": "Pagination page index (0-based)."
+              },
+              {
+                "name": "limit",
+                "value": "",
+                "type": "query",
+                "description": "Page size (max 50, default 20)."
+              }
+            ]
+          },
+          "docs": "Retrieves a list of Agents (formerly Interviews) available in your workspace. Supports filtering by status, search term, and sorting."
+        },
+        {
+          "info": {
+            "name": "Search Calls",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.thoughtly.com/interview/:interview_id/responses",
+            "params": [
+              {
+                "name": "interview_id",
+                "value": "",
+                "type": "path",
+                "description": "The ID of the Agent that produced the calls."
+              },
+              {
+                "name": "search",
+                "value": "",
+                "type": "query",
+                "description": "Search term to filter call responses."
+              },
+              {
+                "name": "response_tags",
+                "value": "",
+                "type": "query",
+                "description": "Filter responses by tag."
+              },
+              {
+                "name": "status",
+                "value": "",
+                "type": "query",
+                "description": "Filter responses by status (e.g. success, failure)."
+              },
+              {
+                "name": "job_id",
+                "value": "",
+                "type": "query",
+                "description": "Filter responses by job ID."
+              },
+              {
+                "name": "page",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "limit",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          },
+          "docs": "Search and filter calls (responses) for a given Agent."
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "contact",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Get Contacts",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.thoughtly.com/contact",
+            "params": [
+              {
+                "name": "search",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "phone_numbers_only",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "tags",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "excluded_tags",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "sort",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "sortDirection",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "page",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "limit",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          },
+          "docs": "Retrieves a list of Contacts. Supports filtering by tags, phone numbers, and search."
+        },
+        {
+          "info": {
+            "name": "Create Contact",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.thoughtly.com/contact/create",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Creates a new Contact (a person you can call or message)."
+        },
+        {
+          "info": {
+            "name": "Get Contact",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.thoughtly.com/contact/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Retrieve a single Contact by ID."
+        },
+        {
+          "info": {
+            "name": "Delete Contact",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://api.thoughtly.com/contact/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Permanently deletes a Contact by ID."
+        },
+        {
+          "info": {
+            "name": "Call A Contact",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.thoughtly.com/contact/call",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Initiate a call with a Contact using a specific Agent (interview)."
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "user",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Get User Details",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.thoughtly.com/user"
+          },
+          "docs": "Retrieve the currently authenticated user's profile (ID, name, email)."
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "webhooks",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Get Currently Active Webhooks",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.thoughtly.com/webhooks"
+          },
+          "docs": "Retrieve all active webhook subscriptions for the authenticated workspace."
+        },
+        {
+          "info": {
+            "name": "Subscribe To Webhook",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.thoughtly.com/webhooks/subscribe",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Subscribe to a webhook event (e.g. NEW_RESPONSE, PHONE_TRANSFER)."
+        },
+        {
+          "info": {
+            "name": "Unsubscribe From Webhook",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://api.thoughtly.com/webhooks/unsubscribe",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Remove a webhook subscription."
+        },
+        {
+          "info": {
+            "name": "Trigger Automation With Webhook",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.thoughtly.com/webhook/automation/:automation_id",
+            "params": [
+              {
+                "name": "automation_id",
+                "value": "",
+                "type": "path",
+                "description": "The ID of the Webhook-triggered automation."
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Trigger an Automation that uses a Webhook trigger. Request body can be any arbitrary JSON; fields are available downstream in the automation steps."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

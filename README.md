@@ -1,14 +1,36 @@
 # Thoughtly (thoughtly)
 
-Thoughtly is an AI voice and chat agent platform that helps revenue and support teams contact every lead across every channel — voice, SMS, email, WhatsApp, and iMessage. The product combines a no-code agent designer (decision-tree builder, Vibes AI assistant, Genius knowledge base), a managed telephony layer (purchased numbers, branded calling, BYOC, voice cloning), and a public REST API for programmatically creating contacts, triggering outbound calls, and subscribing to call-completion webhooks.
+Thoughtly is an AI voice and chat agent platform that helps revenue and support
+teams contact every lead across every channel — voice, SMS, email, WhatsApp,
+and iMessage. The product combines a no-code agent designer (decision-tree
+builder, Vibes AI assistant, Genius knowledge base), a managed telephony layer
+(purchased numbers, branded calling, BYOC, voice cloning), and a public REST
+API for programmatically creating contacts, triggering outbound calls, and
+subscribing to call-completion webhooks. Thoughtly integrates natively with
+Salesforce, HubSpot, Zoho, GoHighLevel, Keap, Pipedrive, Attio, Calendly,
+Acuity, Cal.com, Mindbody, Gmail, Slack, Zendesk, Shopify, Zapier, and Make.
 
-**URL:** [Visit APIs.json](https://raw.githubusercontent.com/api-evangelist/thoughtly/refs/heads/main/apis.yml)
+**APIs.json:** [https://raw.githubusercontent.com/api-evangelist/thoughtly/refs/heads/main/apis.yml](https://raw.githubusercontent.com/api-evangelist/thoughtly/refs/heads/main/apis.yml)
 
-**Run:** [Capabilities Using Naftiko](https://github.com/naftiko/fleet?utm_source=api-evangelist&utm_medium=readme&utm_campaign=company-api-evangelist&utm_content=repo)
+## Scope
+
+- **Type:** Index
+- **Position:** Provider
+- **Access:** 3rd-Party
 
 ## Tags
 
-- Voice AI, Chat AI, Conversational AI, AI Agents, Outbound Calling, Inbound Calling, Lead Conversion, SMS, WhatsApp, CRM, Telephony
+- Voice AI
+- Chat AI
+- Conversational AI
+- AI Agents
+- Outbound Calling
+- Inbound Calling
+- Lead Conversion
+- SMS
+- WhatsApp
+- CRM
+- Telephony
 
 ## Timestamps
 
@@ -19,112 +41,109 @@ Thoughtly is an AI voice and chat agent platform that helps revenue and support 
 
 ### Thoughtly API
 
-Public REST API for the Thoughtly platform. Manage Agents (called "interviews" in the API), create and update Contacts, trigger outbound calls, search call responses, subscribe to webhook events (`NEW_RESPONSE`, `PHONE_TRANSFER`, etc.), and trigger Webhook-driven Automations. Authentication uses two headers: `x-api-token` and `team_id`, both available from [Developer Settings](https://app.thoughtly.com/settings/developer).
+Public REST API for the Thoughtly platform. Manage Agents (called
+"interviews" in the API), create and update Contacts, trigger outbound
+calls, search call responses, subscribe to webhook events
+(NEW_RESPONSE, PHONE_TRANSFER, etc.), and trigger Webhook-driven
+Automations. Authentication uses two headers: x-api-token and team_id.
 
-**Base URL:** `https://api.thoughtly.com`
+- **Human URL:** [https://docs.thoughtly.com/developers](https://docs.thoughtly.com/developers)
+- **Base URL:** `https://api.thoughtly.com`
 
-**Human URL:** [https://docs.thoughtly.com/developers](https://docs.thoughtly.com/developers)
+#### Tags
 
-- [Documentation — Developers](https://docs.thoughtly.com/developers)
-- [Documentation — API Reference](https://docs.thoughtly.com/api-reference)
-- [OpenAPI (upstream)](https://docs.thoughtly.com/api-reference/openapi.json)
-- [OpenAPI (this repo)](openapi/thoughtly-api-openapi.yml)
+- Voice AI
+- Agents
+- Contacts
+- Calls
+- Webhooks
+
+#### Properties
+
+- [Documentation](https://docs.thoughtly.com/developers)
+- [Documentation](https://docs.thoughtly.com/api-reference)
+- [OpenAPI](https://docs.thoughtly.com/api-reference/openapi.json) — [OpenAPI Specification](https://spec.openapis.org/oas/latest.html)
+- [OpenAPI](openapi/thoughtly-api-openapi.yml) — [OpenAPI Specification](https://spec.openapis.org/oas/latest.html)
+- [Postman Collection](collections/thoughtly-api.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
+- [Open Collection](collections/thoughtly-api.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
 - [Spectral Rules](rules/thoughtly-rules.yml)
-- [JSON Schema — Contact](json-schema/thoughtly-contact-schema.json)
-- [JSON Schema — Agent](json-schema/thoughtly-agent-schema.json)
-- [JSON Schema — Call](json-schema/thoughtly-call-schema.json)
-- [JSON Schema — Webhook](json-schema/thoughtly-webhook-schema.json)
-- [JSON Structure — Contact](json-structure/thoughtly-contact-structure.json)
-- [JSON Structure — Call](json-structure/thoughtly-call-structure.json)
-- [JSON-LD Context](json-ld/thoughtly-context.jsonld)
-- [Example — Create Contact](examples/thoughtly-create-contact-example.json)
-- [Example — Call A Contact](examples/thoughtly-call-contact-example.json)
-- [Example — Subscribe Webhook](examples/thoughtly-subscribe-webhook-example.json)
-- [Example — NEW_RESPONSE Webhook Payload](examples/thoughtly-new-response-webhook-example.json)
-- [Naftiko Capability — Agents](capabilities/agents.yaml)
-- [Naftiko Capability — Contacts](capabilities/contacts.yaml)
-- [Naftiko Capability — Webhooks](capabilities/webhooks.yaml)
+- [JSON Schema](json-schema/thoughtly-contact-schema.json) — [JSON Schema](https://json-schema.org/specification)
+- [JSON Schema](json-schema/thoughtly-agent-schema.json) — [JSON Schema](https://json-schema.org/specification)
+- [JSON Schema](json-schema/thoughtly-call-schema.json) — [JSON Schema](https://json-schema.org/specification)
+- [JSON Schema](json-schema/thoughtly-webhook-schema.json) — [JSON Schema](https://json-schema.org/specification)
+- [JSON Structure](json-structure/thoughtly-contact-structure.json)
+- [JSON Structure](json-structure/thoughtly-call-structure.json)
+- [JSON-LD](json-ld/thoughtly-context.jsonld) — [JSON-LD](https://www.w3.org/TR/json-ld11/)
+- [Examples](examples/thoughtly-create-contact-example.json)
+- [Examples](examples/thoughtly-call-contact-example.json)
+- [Examples](examples/thoughtly-subscribe-webhook-example.json)
+- [Examples](examples/thoughtly-new-response-webhook-example.json)
+- [Webhooks](https://docs.thoughtly.com/integrations/webhooks)
+- [Documentation](https://docs.thoughtly.com/automations/getting-started)
+- [Authentication](https://app.thoughtly.com/settings/developer)
 
-## Endpoints
+## Common Properties
 
-| Method | Path | Operation |
-|---|---|---|
-| GET | `/interview` | Get Agents |
-| GET | `/interview/{interview_id}/responses` | Search Calls |
-| GET | `/contact` | Get Contacts |
-| POST | `/contact/create` | Create Contact |
-| GET | `/contact/{id}` | Get Contact |
-| DELETE | `/contact/{id}` | Delete Contact |
-| POST | `/contact/call` | Call A Contact |
-| GET | `/user` | Get User Details |
-| GET | `/webhooks` | Get Currently Active Webhooks |
-| POST | `/webhooks/subscribe` | Subscribe To Webhook |
-| DELETE | `/webhooks/unsubscribe` | Unsubscribe From Webhook |
-| POST | `/webhook/automation/{automation_id}` | Trigger Automation With Webhook |
-
-## Authentication
-
-Every authenticated request requires two headers:
-
-| Header | Purpose |
-|---|---|
-| `x-api-token` | API token from Developer Settings. |
-| `team_id` | Team identifier scoping requests to a workspace. |
-
-The single exception is `POST /webhook/automation/{automation_id}`, which is intentionally unauthenticated so external systems can trigger Webhook-driven Automations.
-
-## Rate Limits
-
-- **100 requests per minute** per API key across all endpoints.
-- A `429 Too Many Requests` response indicates throttling — apply exponential backoff.
-- Thoughtly does **not** auto-retry failed outgoing webhook deliveries; a 429 from a subscriber URL is retried once respecting `Retry-After`.
-
-See [`rate-limits/thoughtly-rate-limits.yml`](rate-limits/thoughtly-rate-limits.yml).
-
-## Webhook Events
-
-| Event | Description |
-|---|---|
-| `NEW_RESPONSE` | A call has completed; payload includes call metadata, agent info, structured transcript, and custom fields. |
-| `PHONE_TRANSFER` | A call has been transferred (warm or cold) to another number. |
-| `FOLDER_NEW_RESPONSE` | New response within a specific folder. |
-| `FOLDER_PHONE_TRANSFER` | Phone transfer within a specific folder. |
-| `ACTION_FAILED` | An in-call action failed. |
-
-## Plans and Pricing
-
-| Plan | Price | Included | Notes |
-|---|---|---|---|
-| Free | $0 | 10 minutes/month, unlimited seats | 14-day full-feature trial. |
-| Starter | ~$30/month | 300 minutes | Overage approx $0.09/minute voice. |
-| Enterprise | Custom | Custom | SSO, audit log, BYOC, BYOK, branded calling. |
-| AppSumo Lifetime | One-time | Credit-based | 10 credits/min voice, 8 credits/SMS, 500 credits/phone-number/month, 1 credit/automation-step, 3 credits/chat-test, 200 credits per $1 carrier fees. |
-
-See [`plans/thoughtly-plans-pricing.yml`](plans/thoughtly-plans-pricing.yml) and [`finops/thoughtly-finops.yml`](finops/thoughtly-finops.yml).
-
-## Native Integrations
-
-**CRM:** Salesforce, HubSpot, Zoho CRM, GoHighLevel, Pipedrive, Attio, Keap, Fence Flow
-**Scheduling:** Calendly, Acuity Scheduling, Cal.com, Mindbody, Zoho Bookings
-**Communication:** Gmail, Slack, WhatsApp Business, iMessage/Lync
-**Ticketing:** Zendesk
-**E-commerce:** Shopify
-**Productivity:** Google Sheets, Airtable, Typeform, Trello, Smartsheet, Zoom
-**Automation Platforms:** Zapier, Make
-
-Full integration index: [docs.thoughtly.com/integrations/getting-started](https://docs.thoughtly.com/integrations/getting-started).
-
-## Resources
-
-- **Pricing:** [docs.thoughtly.com/platform/billing](https://docs.thoughtly.com/platform/billing)
-- **Changelog:** [docs.thoughtly.com/support/changelog](https://docs.thoughtly.com/support/changelog)
-- **Support:** [docs.thoughtly.com/support/getting-help](https://docs.thoughtly.com/support/getting-help)
-- **FAQ:** [docs.thoughtly.com/resources/faq](https://docs.thoughtly.com/resources/faq)
-- **Glossary:** [docs.thoughtly.com/resources/glossary/overview](https://docs.thoughtly.com/resources/glossary/overview)
-- **Promptbooks:** [docs.thoughtly.com/promptbooks/browse](https://docs.thoughtly.com/promptbooks/browse)
-- **Whitepapers:** [docs.thoughtly.com/resources/whitepapers/overview](https://docs.thoughtly.com/resources/whitepapers/overview)
-- **LinkedIn:** [linkedin.com/company/thoughtly-ai](https://www.linkedin.com/company/thoughtly-ai/)
+- [Website](https://thoughtly.com)
+- [Portal](https://docs.thoughtly.com)
+- [Documentation](https://docs.thoughtly.com/developers)
+- [Documentation](https://docs.thoughtly.com/api-reference)
+- [Getting Started](https://docs.thoughtly.com/getting-started/quick-start)
+- [Sign Up](https://app.thoughtly.com/signup)
+- [Login](https://app.thoughtly.com/login)
+- [Authentication](https://app.thoughtly.com/settings/developer)
+- [Pricing](https://docs.thoughtly.com/platform/billing)
+- [Plans](plans/thoughtly-plans-pricing.yml)
+- [Rate Limits](rate-limits/thoughtly-rate-limits.yml)
+- [Fin Ops](finops/thoughtly-finops.yml)
+- [Changelog](https://docs.thoughtly.com/support/changelog)
+- [Support](https://docs.thoughtly.com/support/getting-help)
+- [F A Q](https://docs.thoughtly.com/resources/faq)
+- [Glossary](https://docs.thoughtly.com/resources/glossary/overview)
+- [Whitepapers](https://docs.thoughtly.com/resources/whitepapers/overview)
+- [Video Library](https://docs.thoughtly.com/resources/video-library)
+- [Integrations](https://docs.thoughtly.com/integrations/getting-started)
+- [Webhooks](https://docs.thoughtly.com/integrations/webhooks)
+- [Automations](https://docs.thoughtly.com/automations/getting-started)
+- [Knowledge Base](https://docs.thoughtly.com/genius/getting-started)
+- [Agent Builder](https://docs.thoughtly.com/build/agent-builder/overview)
+- [Phone Numbers](https://docs.thoughtly.com/phone-number/getting-started)
+- [Voices](https://docs.thoughtly.com/agents/voices)
+- [Blog Post](https://thoughtly.com/blog)
+- [LinkedIn](https://www.linkedin.com/company/thoughtly-ai/)
+- [Twitter](https://twitter.com/thoughtlyai)
+- [Affiliate Program](https://docs.thoughtly.com/promptbooks/joining-the-thoughtly-affiliate-program)
+- [Referral Program](https://docs.thoughtly.com/support/referral-program)
+- [Promptbooks](https://docs.thoughtly.com/promptbooks/browse)
+- [Vocabulary](vocabulary/thoughtly-vocabulary.yml)
+- [Integration](https://docs.thoughtly.com/integrations/crm/salesforce)
+- [Integration](https://docs.thoughtly.com/integrations/crm/hubspot)
+- [Integration](https://docs.thoughtly.com/integrations/crm/zoho)
+- [Integration](https://docs.thoughtly.com/integrations/crm/highlevel)
+- [Integration](https://docs.thoughtly.com/integrations/crm/pipedrive)
+- [Integration](https://docs.thoughtly.com/integrations/crm/attio)
+- [Integration](https://docs.thoughtly.com/integrations/crm/keap)
+- [Integration](https://docs.thoughtly.com/integrations/scheduling/calendly)
+- [Integration](https://docs.thoughtly.com/integrations/scheduling/acuity)
+- [Integration](https://docs.thoughtly.com/integrations/scheduling/cal-com)
+- [Integration](https://docs.thoughtly.com/integrations/scheduling/mindbody)
+- [Integration](https://docs.thoughtly.com/integrations/communication/gmail)
+- [Integration](https://docs.thoughtly.com/integrations/communication/slack)
+- [Integration](https://docs.thoughtly.com/integrations/communication/whatsapp-business)
+- [Integration](https://docs.thoughtly.com/integrations/ticketing/zendesk)
+- [Integration](https://docs.thoughtly.com/integrations/e-commerce/shopify)
+- [Integration](https://docs.thoughtly.com/integrations/productivity/google-sheets)
+- [Integration](https://docs.thoughtly.com/integrations/productivity/airtable)
+- [Integration](https://docs.thoughtly.com/integrations/productivity/typeform)
+- [Integration](https://docs.thoughtly.com/integrations/productivity/trello)
+- [Integration](https://docs.thoughtly.com/integrations/productivity/smartsheet)
+- [Integration](https://docs.thoughtly.com/integrations/productivity/zoom)
+- [Integration](https://docs.thoughtly.com/integrations/automations/zapier)
+- [Integration](https://docs.thoughtly.com/integrations/automations/make)
+- [Features](undefined)
 
 ## Maintainers
 
-- Kin Lane — [apievangelist.com](https://apievangelist.com) — kin@apievangelist.com
+**FN:** Kin Lane
+**Email:** kin@apievangelist.com
+**URL:** https://apievangelist.com

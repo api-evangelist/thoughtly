@@ -80,12 +80,6 @@ apis:
         type: Examples
       - url: examples/thoughtly-new-response-webhook-example.json
         type: Examples
-      - url: capabilities/agents.yaml
-        type: NaftikoCapability
-      - url: capabilities/contacts.yaml
-        type: NaftikoCapability
-      - url: capabilities/webhooks.yaml
-        type: NaftikoCapability
       - url: https://docs.thoughtly.com/integrations/webhooks
         type: Webhooks
       - url: https://docs.thoughtly.com/automations/getting-started
