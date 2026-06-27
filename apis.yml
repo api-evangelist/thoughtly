@@ -98,7 +98,7 @@ common:
     url: https://docs.thoughtly.com/api-reference
   - type: GettingStarted
     url: https://docs.thoughtly.com/getting-started/quick-start
-  - type: SignUp
+  - type: Signup
     url: https://app.thoughtly.com/signup
   - type: Login
     url: https://app.thoughtly.com/login
@@ -153,76 +153,76 @@ common:
     url: https://docs.thoughtly.com/promptbooks/browse
   - type: Vocabulary
     url: vocabulary/thoughtly-vocabulary.yml
-  - type: Integration
+  - type: Integrations
     url: https://docs.thoughtly.com/integrations/crm/salesforce
     name: Salesforce
-  - type: Integration
+  - type: Integrations
     url: https://docs.thoughtly.com/integrations/crm/hubspot
     name: HubSpot
-  - type: Integration
+  - type: Integrations
     url: https://docs.thoughtly.com/integrations/crm/zoho
     name: Zoho CRM
-  - type: Integration
+  - type: Integrations
     url: https://docs.thoughtly.com/integrations/crm/highlevel
     name: GoHighLevel
-  - type: Integration
+  - type: Integrations
     url: https://docs.thoughtly.com/integrations/crm/pipedrive
     name: Pipedrive
-  - type: Integration
+  - type: Integrations
     url: https://docs.thoughtly.com/integrations/crm/attio
     name: Attio
-  - type: Integration
+  - type: Integrations
     url: https://docs.thoughtly.com/integrations/crm/keap
     name: Keap
-  - type: Integration
+  - type: Integrations
     url: https://docs.thoughtly.com/integrations/scheduling/calendly
     name: Calendly
-  - type: Integration
+  - type: Integrations
     url: https://docs.thoughtly.com/integrations/scheduling/acuity
     name: Acuity Scheduling
-  - type: Integration
+  - type: Integrations
     url: https://docs.thoughtly.com/integrations/scheduling/cal-com
     name: Cal.com
-  - type: Integration
+  - type: Integrations
     url: https://docs.thoughtly.com/integrations/scheduling/mindbody
     name: Mindbody
-  - type: Integration
+  - type: Integrations
     url: https://docs.thoughtly.com/integrations/communication/gmail
     name: Gmail
-  - type: Integration
+  - type: Integrations
     url: https://docs.thoughtly.com/integrations/communication/slack
     name: Slack
-  - type: Integration
+  - type: Integrations
     url: https://docs.thoughtly.com/integrations/communication/whatsapp-business
     name: WhatsApp Business
-  - type: Integration
+  - type: Integrations
     url: https://docs.thoughtly.com/integrations/ticketing/zendesk
     name: Zendesk
-  - type: Integration
+  - type: Integrations
     url: https://docs.thoughtly.com/integrations/e-commerce/shopify
     name: Shopify
-  - type: Integration
+  - type: Integrations
     url: https://docs.thoughtly.com/integrations/productivity/google-sheets
     name: Google Sheets
-  - type: Integration
+  - type: Integrations
     url: https://docs.thoughtly.com/integrations/productivity/airtable
     name: Airtable
-  - type: Integration
+  - type: Integrations
     url: https://docs.thoughtly.com/integrations/productivity/typeform
     name: Typeform
-  - type: Integration
+  - type: Integrations
     url: https://docs.thoughtly.com/integrations/productivity/trello
     name: Trello
-  - type: Integration
+  - type: Integrations
     url: https://docs.thoughtly.com/integrations/productivity/smartsheet
     name: Smartsheet
-  - type: Integration
+  - type: Integrations
     url: https://docs.thoughtly.com/integrations/productivity/zoom
     name: Zoom
-  - type: Integration
+  - type: Integrations
     url: https://docs.thoughtly.com/integrations/automations/zapier
     name: Zapier
-  - type: Integration
+  - type: Integrations
     url: https://docs.thoughtly.com/integrations/automations/make
     name: Make
   - type: Features
