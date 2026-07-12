@@ -88,6 +88,12 @@ apis:
       - url: https://app.thoughtly.com/settings/developer
         type: Authentication
 common:
+  - type: TrustCenter
+    url: security/thoughtly-trust-center.yml
+  - type: DomainSecurity
+    url: security/thoughtly-domain-security.yml
+  - type: Authentication
+    url: authentication/thoughtly-authentication.yml
   - type: Website
     url: https://thoughtly.com
   - type: Portal
