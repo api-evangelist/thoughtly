@@ -88,6 +88,8 @@ apis:
       - url: https://app.thoughtly.com/settings/developer
         type: Authentication
 common:
+  - type: AgenticAccess
+    url: agentic-access/thoughtly-agentic-access.yml
   - type: TrustCenter
     url: security/thoughtly-trust-center.yml
   - type: DomainSecurity
