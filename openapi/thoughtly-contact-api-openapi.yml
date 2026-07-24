@@ -1,0 +1,242 @@
+openapi: 3.0.0
+info:
+  title: Thoughtly agent contact API
+  version: 1.0.0
+  description: 'The Thoughtly API lets you programmatically manage voice and chat AI agents,
+
+    contacts, calls, webhooks, and automations. Voice Agents are referenced in
+
+    the API as "interviews" for historical reasons. Authentication uses two
+
+    headers: `x-api-token` and `team_id`, both available from the Developer
+
+    Settings page of the Thoughtly dashboard.
+
+    '
+  contact:
+    name: Thoughtly Support
+    email: support@thoughtly.com
+    url: https://thoughtly.com
+  termsOfService: https://thoughtly.com/terms
+  license:
+    name: Proprietary
+servers:
+- url: https://api.thoughtly.com
+  description: Production Server
+security:
+- ApiKeyAuth: []
+  TeamIdAuth: []
+tags:
+- name: contact
+  description: Contact management — create, retrieve, update, and call contacts.
+paths:
+  /contact:
+    get:
+      summary: Get Contacts
+      description: Retrieves a list of Contacts. Supports filtering by tags, phone numbers, and search.
+      operationId: getContacts
+      tags:
+      - contact
+      parameters:
+      - name: search
+        in: query
+        schema:
+          type: string
+      - name: phone_numbers_only
+        in: query
+        schema:
+          type: boolean
+      - name: tags
+        in: query
+        style: form
+        explode: true
+        schema:
+          type: array
+          items:
+            type: string
+      - name: excluded_tags
+        in: query
+        style: form
+        explode: true
+        schema:
+          type: array
+          items:
+            type: string
+      - name: sort
+        in: query
+        schema:
+          type: string
+      - name: sortDirection
+        in: query
+        schema:
+          type: string
+          enum:
+          - asc
+          - desc
+      - name: page
+        in: query
+        schema:
+          type: integer
+          minimum: 0
+      - name: limit
+        in: query
+        schema:
+          type: integer
+          minimum: 1
+          maximum: 50
+          default: 20
+      responses:
+        '200':
+          description: A list of Contacts.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/GenericResponse'
+  /contact/create:
+    post:
+      summary: Create Contact
+      description: Creates a new Contact (a person you can call or message).
+      operationId: createContact
+      tags:
+      - contact
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ContactCreateRequest'
+      responses:
+        '200':
+          description: Contact created.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/GenericResponse'
+  /contact/{id}:
+    get:
+      summary: Get Contact
+      description: Retrieve a single Contact by ID.
+      operationId: getContact
+      tags:
+      - contact
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: The Contact.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/GenericResponse'
+        '404':
+          description: Contact not found.
+    delete:
+      summary: Delete Contact
+      description: Permanently deletes a Contact by ID.
+      operationId: deleteContact
+      tags:
+      - contact
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Contact deleted.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/GenericResponse'
+  /contact/call:
+    post:
+      summary: Call A Contact
+      description: Initiate a call with a Contact using a specific Agent (interview).
+      operationId: callContact
+      tags:
+      - contact
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/CallRequest'
+      responses:
+        '200':
+          description: Call initiated.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/GenericResponse'
+components:
+  schemas:
+    ContactCreateRequest:
+      type: object
+      required:
+      - phone_number
+      properties:
+        phone_number:
+          type: string
+          description: E.164 phone number of the Contact (required).
+        name:
+          type: string
+        email:
+          type: string
+          format: email
+        country_code:
+          type: string
+        tags:
+          type: array
+          items:
+            type: string
+        attributes:
+          type: object
+          additionalProperties: true
+          description: Custom key/value attributes referenceable from Agent scripts.
+      additionalProperties: false
+    CallRequest:
+      type: object
+      required:
+      - contact_id
+      - interview_id
+      properties:
+        contact_id:
+          type: string
+          description: ID of the Contact to call.
+        interview_id:
+          type: string
+          description: ID of the Agent (interview) that will handle the call.
+        metadata:
+          type: object
+          additionalProperties: true
+          nullable: true
+          description: Arbitrary key/value pairs available to the Agent script as `{key}` placeholders.
+    GenericResponse:
+      type: object
+      required:
+      - data
+      properties:
+        error:
+          type: object
+          nullable: true
+          description: Populated only when the request fails.
+        data:
+          type: object
+          additionalProperties: true
+          description: Endpoint-specific payload.
+  securitySchemes:
+    ApiKeyAuth:
+      type: apiKey
+      in: header
+      name: x-api-token
+      description: API token from Thoughtly Developer Settings.
+    TeamIdAuth:
+      type: apiKey
+      in: header
+      name: team_id
+      description: Team identifier from Thoughtly Developer Settings.

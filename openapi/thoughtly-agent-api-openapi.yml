@@ -1,0 +1,176 @@
+openapi: 3.0.0
+info:
+  title: Thoughtly agent API
+  version: 1.0.0
+  description: 'The Thoughtly API lets you programmatically manage voice and chat AI agents,
+
+    contacts, calls, webhooks, and automations. Voice Agents are referenced in
+
+    the API as "interviews" for historical reasons. Authentication uses two
+
+    headers: `x-api-token` and `team_id`, both available from the Developer
+
+    Settings page of the Thoughtly dashboard.
+
+    '
+  contact:
+    name: Thoughtly Support
+    email: support@thoughtly.com
+    url: https://thoughtly.com
+  termsOfService: https://thoughtly.com/terms
+  license:
+    name: Proprietary
+servers:
+- url: https://api.thoughtly.com
+  description: Production Server
+security:
+- ApiKeyAuth: []
+  TeamIdAuth: []
+tags:
+- name: agent
+  description: Voice and chat agent operations. Agents are referenced as "interviews" in URLs.
+paths:
+  /interview:
+    get:
+      summary: Get Agents
+      description: Retrieves a list of Agents (formerly Interviews) available in your workspace. Supports filtering by status, search term, and sorting.
+      operationId: getAgents
+      tags:
+      - agent
+      parameters:
+      - name: search
+        in: query
+        schema:
+          type: string
+        description: Search term to filter Agents by title, name, or other properties.
+      - name: status
+        in: query
+        schema:
+          type: string
+          enum:
+          - ACTIVE
+          - ARCHIVED
+        description: Filter Agents by their current status.
+      - name: sort
+        in: query
+        schema:
+          type: string
+          enum:
+          - title_asc
+          - title_desc
+          - created_asc
+          - created_desc
+        description: Sort order for Agents.
+      - name: all_interviews
+        in: query
+        schema:
+          type: boolean
+        description: Set true to include archived Agents.
+      - name: page
+        in: query
+        schema:
+          type: integer
+          minimum: 0
+        description: Pagination page index (0-based).
+      - name: limit
+        in: query
+        schema:
+          type: integer
+          minimum: 1
+          maximum: 50
+          default: 20
+        description: Page size (max 50, default 20).
+      responses:
+        '200':
+          description: A list of Agents.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/GenericResponse'
+  /interview/{interview_id}/responses:
+    get:
+      summary: Search Calls
+      description: Search and filter calls (responses) for a given Agent.
+      operationId: searchCalls
+      tags:
+      - agent
+      parameters:
+      - name: interview_id
+        in: path
+        required: true
+        schema:
+          type: string
+        description: The ID of the Agent that produced the calls.
+      - name: search
+        in: query
+        schema:
+          type: string
+        description: Search term to filter call responses.
+      - name: response_tags
+        in: query
+        style: form
+        explode: true
+        schema:
+          type: array
+          items:
+            type: string
+        description: Filter responses by tag.
+      - name: status
+        in: query
+        style: form
+        explode: true
+        schema:
+          type: array
+          items:
+            type: string
+        description: Filter responses by status (e.g. success, failure).
+      - name: job_id
+        in: query
+        schema:
+          type: string
+        description: Filter responses by job ID.
+      - name: page
+        in: query
+        schema:
+          type: integer
+          minimum: 0
+      - name: limit
+        in: query
+        schema:
+          type: integer
+          minimum: 1
+          maximum: 50
+          default: 20
+      responses:
+        '200':
+          description: A list of call responses for the Agent.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/GenericResponse'
+components:
+  schemas:
+    GenericResponse:
+      type: object
+      required:
+      - data
+      properties:
+        error:
+          type: object
+          nullable: true
+          description: Populated only when the request fails.
+        data:
+          type: object
+          additionalProperties: true
+          description: Endpoint-specific payload.
+  securitySchemes:
+    ApiKeyAuth:
+      type: apiKey
+      in: header
+      name: x-api-token
+      description: API token from Thoughtly Developer Settings.
+    TeamIdAuth:
+      type: apiKey
+      in: header
+      name: team_id
+      description: Team identifier from Thoughtly Developer Settings.
