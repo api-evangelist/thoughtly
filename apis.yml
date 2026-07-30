@@ -12,9 +12,22 @@ description: |
   Salesforce, HubSpot, Zoho, GoHighLevel, Keap, Pipedrive, Attio, Calendly,
   Acuity, Cal.com, Mindbody, Gmail, Slack, Zendesk, Shopify, Zapier, and Make.
 type: Index
+accessModel:
+  pricing: freemium
+  onboarding: self-serve
+  trial: false
+  try_now: true
+  public: false
+  label: Freemium · Self-serve signup
+  confidence: high
+  source:
+  - plans
+  - authentication
+  generated: '2026-07-22'
+  method: derived
 position: Provider
 access: 3rd-Party
-image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
+image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/icons/thoughtly.png
 tags:
   - Voice AI
   - Chat AI
@@ -31,63 +44,185 @@ created: '2026-05-24'
 modified: '2026-05-24'
 specificationVersion: '0.20'
 apis:
-  - aid: thoughtly:thoughtly-api
-    name: Thoughtly API
-    description: |
-      Public REST API for the Thoughtly platform. Manage Agents (called
-      "interviews" in the API), create and update Contacts, trigger outbound
-      calls, search call responses, subscribe to webhook events
-      (NEW_RESPONSE, PHONE_TRANSFER, etc.), and trigger Webhook-driven
-      Automations. Authentication uses two headers: x-api-token and team_id.
-    humanURL: https://docs.thoughtly.com/developers
-    baseURL: https://api.thoughtly.com
-    tags:
-      - Voice AI
-      - Agents
-      - Contacts
-      - Calls
-      - Webhooks
-    properties:
-      - url: https://docs.thoughtly.com/developers
-        type: Documentation
-      - url: https://docs.thoughtly.com/api-reference
-        type: Documentation
-      - url: https://docs.thoughtly.com/api-reference/openapi.json
-        type: OpenAPI
-      - url: openapi/thoughtly-api-openapi.yml
-        type: OpenAPI
-      - url: rules/thoughtly-rules.yml
-        type: SpectralRules
-      - url: json-schema/thoughtly-contact-schema.json
-        type: JSONSchema
-      - url: json-schema/thoughtly-agent-schema.json
-        type: JSONSchema
-      - url: json-schema/thoughtly-call-schema.json
-        type: JSONSchema
-      - url: json-schema/thoughtly-webhook-schema.json
-        type: JSONSchema
-      - url: json-structure/thoughtly-contact-structure.json
-        type: JSONStructure
-      - url: json-structure/thoughtly-call-structure.json
-        type: JSONStructure
-      - url: json-ld/thoughtly-context.jsonld
-        type: JSONLD
-      - url: examples/thoughtly-create-contact-example.json
-        type: Examples
-      - url: examples/thoughtly-call-contact-example.json
-        type: Examples
-      - url: examples/thoughtly-subscribe-webhook-example.json
-        type: Examples
-      - url: examples/thoughtly-new-response-webhook-example.json
-        type: Examples
-      - url: https://docs.thoughtly.com/integrations/webhooks
-        type: Webhooks
-      - url: https://docs.thoughtly.com/automations/getting-started
-        type: Documentation
-        name: Automations
-      - url: https://app.thoughtly.com/settings/developer
-        type: Authentication
+- aid: thoughtly:thoughtly-agent-api
+  name: Thoughtly agent API
+  description: Voice and chat agent operations. Agents are referenced as "interviews" in URLs.
+  humanURL: https://docs.thoughtly.com/developers
+  baseURL: https://api.thoughtly.com
+  tags:
+  - agent
+  properties:
+  - type: OpenAPI
+    url: openapi/thoughtly-agent-api-openapi.yml
+  - type: Documentation
+    url: https://docs.thoughtly.com/developers
+  - type: Documentation
+    url: https://docs.thoughtly.com/api-reference
+  - type: SpectralRules
+    url: rules/thoughtly-rules.yml
+  - type: JSONSchema
+    url: json-schema/thoughtly-contact-schema.json
+  - type: JSONSchema
+    url: json-schema/thoughtly-agent-schema.json
+  - type: JSONSchema
+    url: json-schema/thoughtly-call-schema.json
+  - type: JSONSchema
+    url: json-schema/thoughtly-webhook-schema.json
+  - type: JSONStructure
+    url: json-structure/thoughtly-contact-structure.json
+  - type: JSONStructure
+    url: json-structure/thoughtly-call-structure.json
+  - type: JSONLD
+    url: json-ld/thoughtly-context.jsonld
+  - type: Examples
+    url: examples/thoughtly-create-contact-example.json
+  - type: Examples
+    url: examples/thoughtly-call-contact-example.json
+  - type: Examples
+    url: examples/thoughtly-subscribe-webhook-example.json
+  - type: Examples
+    url: examples/thoughtly-new-response-webhook-example.json
+  - type: Webhooks
+    url: https://docs.thoughtly.com/integrations/webhooks
+  - type: Documentation
+    url: https://docs.thoughtly.com/automations/getting-started
+  - type: Authentication
+    url: https://app.thoughtly.com/settings/developer
+- aid: thoughtly:thoughtly-contact-api
+  name: Thoughtly contact API
+  description: Contact management — create, retrieve, update, and call contacts.
+  humanURL: https://docs.thoughtly.com/developers
+  baseURL: https://api.thoughtly.com
+  tags:
+  - contact
+  properties:
+  - type: OpenAPI
+    url: openapi/thoughtly-contact-api-openapi.yml
+  - type: Documentation
+    url: https://docs.thoughtly.com/developers
+  - type: Documentation
+    url: https://docs.thoughtly.com/api-reference
+  - type: SpectralRules
+    url: rules/thoughtly-rules.yml
+  - type: JSONSchema
+    url: json-schema/thoughtly-contact-schema.json
+  - type: JSONSchema
+    url: json-schema/thoughtly-agent-schema.json
+  - type: JSONSchema
+    url: json-schema/thoughtly-call-schema.json
+  - type: JSONSchema
+    url: json-schema/thoughtly-webhook-schema.json
+  - type: JSONStructure
+    url: json-structure/thoughtly-contact-structure.json
+  - type: JSONStructure
+    url: json-structure/thoughtly-call-structure.json
+  - type: JSONLD
+    url: json-ld/thoughtly-context.jsonld
+  - type: Examples
+    url: examples/thoughtly-create-contact-example.json
+  - type: Examples
+    url: examples/thoughtly-call-contact-example.json
+  - type: Examples
+    url: examples/thoughtly-subscribe-webhook-example.json
+  - type: Examples
+    url: examples/thoughtly-new-response-webhook-example.json
+  - type: Webhooks
+    url: https://docs.thoughtly.com/integrations/webhooks
+  - type: Documentation
+    url: https://docs.thoughtly.com/automations/getting-started
+  - type: Authentication
+    url: https://app.thoughtly.com/settings/developer
+- aid: thoughtly:thoughtly-user-api
+  name: Thoughtly user API
+  description: Authenticated user details.
+  humanURL: https://docs.thoughtly.com/developers
+  baseURL: https://api.thoughtly.com
+  tags:
+  - user
+  properties:
+  - type: OpenAPI
+    url: openapi/thoughtly-user-api-openapi.yml
+  - type: Documentation
+    url: https://docs.thoughtly.com/developers
+  - type: Documentation
+    url: https://docs.thoughtly.com/api-reference
+  - type: SpectralRules
+    url: rules/thoughtly-rules.yml
+  - type: JSONSchema
+    url: json-schema/thoughtly-contact-schema.json
+  - type: JSONSchema
+    url: json-schema/thoughtly-agent-schema.json
+  - type: JSONSchema
+    url: json-schema/thoughtly-call-schema.json
+  - type: JSONSchema
+    url: json-schema/thoughtly-webhook-schema.json
+  - type: JSONStructure
+    url: json-structure/thoughtly-contact-structure.json
+  - type: JSONStructure
+    url: json-structure/thoughtly-call-structure.json
+  - type: JSONLD
+    url: json-ld/thoughtly-context.jsonld
+  - type: Examples
+    url: examples/thoughtly-create-contact-example.json
+  - type: Examples
+    url: examples/thoughtly-call-contact-example.json
+  - type: Examples
+    url: examples/thoughtly-subscribe-webhook-example.json
+  - type: Examples
+    url: examples/thoughtly-new-response-webhook-example.json
+  - type: Webhooks
+    url: https://docs.thoughtly.com/integrations/webhooks
+  - type: Documentation
+    url: https://docs.thoughtly.com/automations/getting-started
+  - type: Authentication
+    url: https://app.thoughtly.com/settings/developer
+- aid: thoughtly:thoughtly-webhooks-api
+  name: Thoughtly webhooks API
+  description: Webhook subscription, unsubscription, and automation triggers.
+  humanURL: https://docs.thoughtly.com/developers
+  baseURL: https://api.thoughtly.com
+  tags:
+  - webhooks
+  properties:
+  - type: OpenAPI
+    url: openapi/thoughtly-webhooks-api-openapi.yml
+  - type: Documentation
+    url: https://docs.thoughtly.com/developers
+  - type: Documentation
+    url: https://docs.thoughtly.com/api-reference
+  - type: SpectralRules
+    url: rules/thoughtly-rules.yml
+  - type: JSONSchema
+    url: json-schema/thoughtly-contact-schema.json
+  - type: JSONSchema
+    url: json-schema/thoughtly-agent-schema.json
+  - type: JSONSchema
+    url: json-schema/thoughtly-call-schema.json
+  - type: JSONSchema
+    url: json-schema/thoughtly-webhook-schema.json
+  - type: JSONStructure
+    url: json-structure/thoughtly-contact-structure.json
+  - type: JSONStructure
+    url: json-structure/thoughtly-call-structure.json
+  - type: JSONLD
+    url: json-ld/thoughtly-context.jsonld
+  - type: Examples
+    url: examples/thoughtly-create-contact-example.json
+  - type: Examples
+    url: examples/thoughtly-call-contact-example.json
+  - type: Examples
+    url: examples/thoughtly-subscribe-webhook-example.json
+  - type: Examples
+    url: examples/thoughtly-new-response-webhook-example.json
+  - type: Webhooks
+    url: https://docs.thoughtly.com/integrations/webhooks
+  - type: Documentation
+    url: https://docs.thoughtly.com/automations/getting-started
+  - type: Authentication
+    url: https://app.thoughtly.com/settings/developer
 common:
+  - type: PostmanWorkspace
+    url: https://www.postman.com/kinlaneapi/thoughtly/overview
   - type: AgenticAccess
     url: agentic-access/thoughtly-agentic-access.yml
   - type: TrustCenter
