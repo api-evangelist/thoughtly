@@ -1,0 +1,122 @@
+{
+  "info": {
+    "_postman_id": "8a62f7c9-32f5-46fc-9db3-9b694c129eba",
+    "name": "Thoughtly agent user API",
+    "description": "The Thoughtly API lets you programmatically manage voice and chat AI agents,\ncontacts, calls, webhooks, and automations. Voice Agents are referenced in\nthe API as \"interviews\" for historical reasons. Authentication uses two\nheaders: `x-api-token` and `team_id`, both available from the Developer\nSettings page of the Thoughtly dashboard.\n\n\nContact Support:\n Name: Thoughtly Support\n Email: support@thoughtly.com",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-07-28T03:13:35.000Z",
+    "updatedAt": "2026-07-28T03:13:35.000Z",
+    "lastUpdatedBy": "35240",
+    "uid": "35240-8a62f7c9-32f5-46fc-9db3-9b694c129eba"
+  },
+  "item": [
+    {
+      "name": "user",
+      "item": [
+        {
+          "name": "Get User Details",
+          "id": "11daa510-e190-4512-943b-409d3d5193bd",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/user",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "user"
+              ]
+            },
+            "description": "Retrieve the currently authenticated user's profile (ID, name, email)."
+          },
+          "response": [
+            {
+              "id": "a92ced73-326f-4abc-bb85-3c97701b0609",
+              "name": "Authenticated user details.",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: apikey",
+                    "key": "x-api-token",
+                    "value": "<API Key>"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/user",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "user"
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n  \"data\": {\n    \"autec1c\": \"anim ipsum\"\n  },\n  \"error\": {}\n}",
+              "createdAt": "2026-07-28T03:13:35.000Z",
+              "updatedAt": "2026-07-28T03:13:35.000Z",
+              "uid": "35240-a92ced73-326f-4abc-bb85-3c97701b0609"
+            }
+          ],
+          "createdAt": "2026-07-28T03:13:35.000Z",
+          "updatedAt": "2026-07-28T03:13:35.000Z",
+          "uid": "35240-11daa510-e190-4512-943b-409d3d5193bd"
+        }
+      ],
+      "id": "5dba0d67-9155-4a64-9621-5506a84d0700",
+      "createdAt": "2026-07-28T03:13:35.000Z",
+      "updatedAt": "2026-07-28T03:13:35.000Z",
+      "uid": "35240-5dba0d67-9155-4a64-9621-5506a84d0700"
+    }
+  ],
+  "auth": {
+    "type": "apikey",
+    "apikey": [
+      {
+        "key": "key",
+        "value": "x-api-token",
+        "type": "string"
+      },
+      {
+        "key": "value",
+        "value": "{{apiKey}}",
+        "type": "string"
+      },
+      {
+        "key": "in",
+        "value": "header",
+        "type": "string"
+      }
+    ]
+  },
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "https://api.thoughtly.com"
+    }
+  ]
+}

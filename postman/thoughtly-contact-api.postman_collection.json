@@ -1,0 +1,646 @@
+{
+  "info": {
+    "_postman_id": "9db0c0d2-9813-487e-a077-0c897cba939e",
+    "name": "Thoughtly agent contact API",
+    "description": "The Thoughtly API lets you programmatically manage voice and chat AI agents,\ncontacts, calls, webhooks, and automations. Voice Agents are referenced in\nthe API as \"interviews\" for historical reasons. Authentication uses two\nheaders: `x-api-token` and `team_id`, both available from the Developer\nSettings page of the Thoughtly dashboard.\n\n\nContact Support:\n Name: Thoughtly Support\n Email: support@thoughtly.com",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-07-28T03:13:33.000Z",
+    "updatedAt": "2026-07-28T03:13:34.000Z",
+    "lastUpdatedBy": "35240",
+    "uid": "35240-9db0c0d2-9813-487e-a077-0c897cba939e"
+  },
+  "item": [
+    {
+      "name": "contact",
+      "item": [
+        {
+          "name": "create",
+          "item": [
+            {
+              "name": "Create Contact",
+              "id": "981cc9f5-5ed3-4409-8e64-02a36bfd21b0",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"phone_number\": \"<string>\",\n  \"name\": \"<string>\",\n  \"email\": \"<email>\",\n  \"country_code\": \"<string>\",\n  \"tags\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"attributes\": {\n    \"aliqua_18\": -95154432.21929139\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "json",
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/contact/create",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "contact",
+                    "create"
+                  ]
+                },
+                "description": "Creates a new Contact (a person you can call or message)."
+              },
+              "response": [
+                {
+                  "id": "4f112fe6-030c-422e-9839-d32fc1d12e88",
+                  "name": "Contact created.",
+                  "originalRequest": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: apikey",
+                        "key": "x-api-token",
+                        "value": "<API Key>"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"phone_number\": \"<string>\",\n  \"name\": \"<string>\",\n  \"email\": \"<email>\",\n  \"country_code\": \"<string>\",\n  \"tags\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"attributes\": {\n    \"aliqua_18\": -95154432.21929139\n  }\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/contact/create",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "contact",
+                        "create"
+                      ]
+                    }
+                  },
+                  "status": "OK",
+                  "code": 200,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"data\": {\n    \"elit6\": \"officia ipsum sint ea dolor\"\n  },\n  \"error\": {}\n}",
+                  "createdAt": "2026-07-28T03:13:34.000Z",
+                  "updatedAt": "2026-07-28T03:13:34.000Z",
+                  "uid": "35240-4f112fe6-030c-422e-9839-d32fc1d12e88"
+                }
+              ],
+              "createdAt": "2026-07-28T03:13:34.000Z",
+              "updatedAt": "2026-07-28T03:13:34.000Z",
+              "uid": "35240-981cc9f5-5ed3-4409-8e64-02a36bfd21b0"
+            }
+          ],
+          "id": "00f2988e-2272-424f-870a-103da1f5d881",
+          "createdAt": "2026-07-28T03:13:34.000Z",
+          "updatedAt": "2026-07-28T03:13:34.000Z",
+          "uid": "35240-00f2988e-2272-424f-870a-103da1f5d881"
+        },
+        {
+          "name": "{id}",
+          "item": [
+            {
+              "name": "Get Contact",
+              "id": "1366a3fa-8bf8-478f-8589-3d182688e09e",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/contact/:id",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "contact",
+                    ":id"
+                  ],
+                  "variable": [
+                    {
+                      "id": "7c48e622-d18a-49e0-b63b-67b39018e7ed",
+                      "key": "id",
+                      "value": "<string>",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "description": "Retrieve a single Contact by ID."
+              },
+              "response": [
+                {
+                  "id": "ffb799ec-c708-4271-ad76-1f8f559b5a49",
+                  "name": "The Contact.",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: apikey",
+                        "key": "x-api-token",
+                        "value": "<API Key>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/contact/:id",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "contact",
+                        ":id"
+                      ],
+                      "variable": [
+                        {
+                          "key": "id"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "OK",
+                  "code": 200,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"data\": {\n    \"elit6\": \"officia ipsum sint ea dolor\"\n  },\n  \"error\": {}\n}",
+                  "createdAt": "2026-07-28T03:13:34.000Z",
+                  "updatedAt": "2026-07-28T03:13:34.000Z",
+                  "uid": "35240-ffb799ec-c708-4271-ad76-1f8f559b5a49"
+                },
+                {
+                  "id": "2d71f693-dbd0-463e-8113-858b9318c6fc",
+                  "name": "Contact not found.",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "description": "Added as a part of security scheme: apikey",
+                        "key": "x-api-token",
+                        "value": "<API Key>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/contact/:id",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "contact",
+                        ":id"
+                      ],
+                      "variable": [
+                        {
+                          "key": "id"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "Not Found",
+                  "code": 404,
+                  "_postman_previewlanguage": "text",
+                  "header": [],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": null,
+                  "createdAt": "2026-07-28T03:13:34.000Z",
+                  "updatedAt": "2026-07-28T03:13:34.000Z",
+                  "uid": "35240-2d71f693-dbd0-463e-8113-858b9318c6fc"
+                }
+              ],
+              "createdAt": "2026-07-28T03:13:34.000Z",
+              "updatedAt": "2026-07-28T03:13:34.000Z",
+              "uid": "35240-1366a3fa-8bf8-478f-8589-3d182688e09e"
+            },
+            {
+              "name": "Delete Contact",
+              "id": "353b3d60-3c3e-46b3-8535-3ff14392ae48",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "DELETE",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/contact/:id",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "contact",
+                    ":id"
+                  ],
+                  "variable": [
+                    {
+                      "id": "6eb08e64-ff48-497e-89fd-142fe60bbbec",
+                      "key": "id",
+                      "value": "<string>",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "description": "Permanently deletes a Contact by ID."
+              },
+              "response": [
+                {
+                  "id": "c45ab39b-9f9b-46c8-bc6a-33dc2fcfaa13",
+                  "name": "Contact deleted.",
+                  "originalRequest": {
+                    "method": "DELETE",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: apikey",
+                        "key": "x-api-token",
+                        "value": "<API Key>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/contact/:id",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "contact",
+                        ":id"
+                      ],
+                      "variable": [
+                        {
+                          "key": "id"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "OK",
+                  "code": 200,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"data\": {\n    \"elit6\": \"officia ipsum sint ea dolor\"\n  },\n  \"error\": {}\n}",
+                  "createdAt": "2026-07-28T03:13:34.000Z",
+                  "updatedAt": "2026-07-28T03:13:34.000Z",
+                  "uid": "35240-c45ab39b-9f9b-46c8-bc6a-33dc2fcfaa13"
+                }
+              ],
+              "createdAt": "2026-07-28T03:13:34.000Z",
+              "updatedAt": "2026-07-28T03:13:34.000Z",
+              "uid": "35240-353b3d60-3c3e-46b3-8535-3ff14392ae48"
+            }
+          ],
+          "id": "fed065a2-c544-4a7d-abd6-546c8d87204d",
+          "createdAt": "2026-07-28T03:13:34.000Z",
+          "updatedAt": "2026-07-28T03:13:34.000Z",
+          "uid": "35240-fed065a2-c544-4a7d-abd6-546c8d87204d"
+        },
+        {
+          "name": "call",
+          "item": [
+            {
+              "name": "Call A Contact",
+              "id": "aa721b45-f430-4580-80c8-fe07a4117bd3",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"contact_id\": \"<string>\",\n  \"interview_id\": \"<string>\",\n  \"metadata\": {\n    \"elit_b\": 68887382\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "json",
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/contact/call",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "contact",
+                    "call"
+                  ]
+                },
+                "description": "Initiate a call with a Contact using a specific Agent (interview)."
+              },
+              "response": [
+                {
+                  "id": "56a13655-28f6-4990-9dbe-44bdd2c95846",
+                  "name": "Call initiated.",
+                  "originalRequest": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: apikey",
+                        "key": "x-api-token",
+                        "value": "<API Key>"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"contact_id\": \"<string>\",\n  \"interview_id\": \"<string>\",\n  \"metadata\": {\n    \"elit_b\": 68887382\n  }\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/contact/call",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "contact",
+                        "call"
+                      ]
+                    }
+                  },
+                  "status": "OK",
+                  "code": 200,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"data\": {\n    \"elit6\": \"officia ipsum sint ea dolor\"\n  },\n  \"error\": {}\n}",
+                  "createdAt": "2026-07-28T03:13:34.000Z",
+                  "updatedAt": "2026-07-28T03:13:34.000Z",
+                  "uid": "35240-56a13655-28f6-4990-9dbe-44bdd2c95846"
+                }
+              ],
+              "createdAt": "2026-07-28T03:13:34.000Z",
+              "updatedAt": "2026-07-28T03:13:34.000Z",
+              "uid": "35240-aa721b45-f430-4580-80c8-fe07a4117bd3"
+            }
+          ],
+          "id": "a54b4614-4371-4306-985a-a7b8ee0ca217",
+          "createdAt": "2026-07-28T03:13:34.000Z",
+          "updatedAt": "2026-07-28T03:13:34.000Z",
+          "uid": "35240-a54b4614-4371-4306-985a-a7b8ee0ca217"
+        },
+        {
+          "name": "Get Contacts",
+          "id": "feebd4a5-4949-409f-9f21-79a623b694f7",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/contact?search=<string>&phone_numbers_only=<boolean>&tags=<string>&tags=<string>&excluded_tags=<string>&excluded_tags=<string>&sort=<string>&sortDirection=asc&page=<integer>&limit=20",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "contact"
+              ],
+              "query": [
+                {
+                  "key": "search",
+                  "value": "<string>"
+                },
+                {
+                  "key": "phone_numbers_only",
+                  "value": "<boolean>"
+                },
+                {
+                  "key": "tags",
+                  "value": "<string>"
+                },
+                {
+                  "key": "tags",
+                  "value": "<string>"
+                },
+                {
+                  "key": "excluded_tags",
+                  "value": "<string>"
+                },
+                {
+                  "key": "excluded_tags",
+                  "value": "<string>"
+                },
+                {
+                  "key": "sort",
+                  "value": "<string>"
+                },
+                {
+                  "key": "sortDirection",
+                  "value": "asc"
+                },
+                {
+                  "key": "page",
+                  "value": "<integer>"
+                },
+                {
+                  "key": "limit",
+                  "value": "20"
+                }
+              ]
+            },
+            "description": "Retrieves a list of Contacts. Supports filtering by tags, phone numbers, and search."
+          },
+          "response": [
+            {
+              "id": "5366a724-d663-4d5d-91c0-c3b591dfae2b",
+              "name": "A list of Contacts.",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: apikey",
+                    "key": "x-api-token",
+                    "value": "<API Key>"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/contact?search=<string>&phone_numbers_only=<boolean>&tags=<string>&excluded_tags=<string>&sort=<string>&sortDirection=asc&page=<integer>&limit=20",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "contact"
+                  ],
+                  "query": [
+                    {
+                      "key": "search",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "phone_numbers_only",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "tags",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "excluded_tags",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "sort",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "sortDirection",
+                      "value": "asc"
+                    },
+                    {
+                      "key": "page",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "limit",
+                      "value": "20"
+                    }
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n  \"data\": {\n    \"elit6\": \"officia ipsum sint ea dolor\"\n  },\n  \"error\": {}\n}",
+              "createdAt": "2026-07-28T03:13:34.000Z",
+              "updatedAt": "2026-07-28T03:13:34.000Z",
+              "uid": "35240-5366a724-d663-4d5d-91c0-c3b591dfae2b"
+            }
+          ],
+          "createdAt": "2026-07-28T03:13:34.000Z",
+          "updatedAt": "2026-07-28T03:13:34.000Z",
+          "uid": "35240-feebd4a5-4949-409f-9f21-79a623b694f7"
+        }
+      ],
+      "id": "2680e5d6-5955-41d1-8cd8-7a957250cad6",
+      "createdAt": "2026-07-28T03:13:34.000Z",
+      "updatedAt": "2026-07-28T03:13:34.000Z",
+      "uid": "35240-2680e5d6-5955-41d1-8cd8-7a957250cad6"
+    }
+  ],
+  "auth": {
+    "type": "apikey",
+    "apikey": [
+      {
+        "key": "key",
+        "value": "x-api-token",
+        "type": "string"
+      },
+      {
+        "key": "value",
+        "value": "{{apiKey}}",
+        "type": "string"
+      },
+      {
+        "key": "in",
+        "value": "header",
+        "type": "string"
+      }
+    ]
+  },
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "https://api.thoughtly.com"
+    }
+  ]
+}

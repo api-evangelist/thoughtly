@@ -1,0 +1,20 @@
+{
+  "provider": "thoughtly",
+  "sources": [
+    "thoughtly-agent-api-openapi.yml",
+    "thoughtly-contact-api-openapi.yml",
+    "thoughtly-user-api-openapi.yml",
+    "thoughtly-webhooks-api-openapi.yml"
+  ],
+  "outputs": [
+    "thoughtly-agent-api-openapi.yml",
+    "thoughtly-contact-api-openapi.yml",
+    "thoughtly-user-api-openapi.yml",
+    "thoughtly-webhooks-api-openapi.yml"
+  ],
+  "archived": [],
+  "errors": [],
+  "warnings": [],
+  "notes": [],
+  "skipped": []
+}
