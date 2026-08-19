@@ -1,0 +1,128 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Thoughtly agent API",
+    "version": "1.0.0"
+  },
+  "request": {
+    "auth": {
+      "type": "apikey",
+      "key": "x-api-token",
+      "value": "{{x-api-token}}",
+      "placement": "header"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "agent",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Get Agents",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.thoughtly.com/interview",
+            "params": [
+              {
+                "name": "search",
+                "value": "",
+                "type": "query",
+                "description": "Search term to filter Agents by title, name, or other properties."
+              },
+              {
+                "name": "status",
+                "value": "",
+                "type": "query",
+                "description": "Filter Agents by their current status."
+              },
+              {
+                "name": "sort",
+                "value": "",
+                "type": "query",
+                "description": "Sort order for Agents."
+              },
+              {
+                "name": "all_interviews",
+                "value": "",
+                "type": "query",
+                "description": "Set true to include archived Agents."
+              },
+              {
+                "name": "page",
+                "value": "",
+                "type": "query",
+                "description": "Pagination page index (0-based)."
+              },
+              {
+                "name": "limit",
+                "value": "",
+                "type": "query",
+                "description": "Page size (max 50, default 20)."
+              }
+            ]
+          },
+          "docs": "Retrieves a list of Agents (formerly Interviews) available in your workspace. Supports filtering by status, search term, and sorting."
+        },
+        {
+          "info": {
+            "name": "Search Calls",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.thoughtly.com/interview/:interview_id/responses",
+            "params": [
+              {
+                "name": "interview_id",
+                "value": "",
+                "type": "path",
+                "description": "The ID of the Agent that produced the calls."
+              },
+              {
+                "name": "search",
+                "value": "",
+                "type": "query",
+                "description": "Search term to filter call responses."
+              },
+              {
+                "name": "response_tags",
+                "value": "",
+                "type": "query",
+                "description": "Filter responses by tag."
+              },
+              {
+                "name": "status",
+                "value": "",
+                "type": "query",
+                "description": "Filter responses by status (e.g. success, failure)."
+              },
+              {
+                "name": "job_id",
+                "value": "",
+                "type": "query",
+                "description": "Filter responses by job ID."
+              },
+              {
+                "name": "page",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "limit",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          },
+          "docs": "Search and filter calls (responses) for a given Agent."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}
