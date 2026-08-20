@@ -50,6 +50,8 @@ apis:
   humanURL: https://docs.thoughtly.com/developers
   baseURL: https://api.thoughtly.com
   tags:
+  - Agents
+  tags_raw:
   - agent
   properties:
   - type: OpenAPI
@@ -94,6 +96,8 @@ apis:
   humanURL: https://docs.thoughtly.com/developers
   baseURL: https://api.thoughtly.com
   tags:
+  - Contact
+  tags_raw:
   - contact
   properties:
   - type: OpenAPI
@@ -138,6 +142,8 @@ apis:
   humanURL: https://docs.thoughtly.com/developers
   baseURL: https://api.thoughtly.com
   tags:
+  - User
+  tags_raw:
   - user
   properties:
   - type: OpenAPI
@@ -182,6 +188,8 @@ apis:
   humanURL: https://docs.thoughtly.com/developers
   baseURL: https://api.thoughtly.com
   tags:
+  - Webhook
+  tags_raw:
   - webhooks
   properties:
   - type: OpenAPI
