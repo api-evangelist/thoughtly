@@ -62,7 +62,7 @@ apis:
   humanURL: https://docs.thoughtly.com/developers
   baseURL: https://api.thoughtly.com
   tags:
-  - Agents
+  - agent
   tags_raw:
   - agent
   properties:
