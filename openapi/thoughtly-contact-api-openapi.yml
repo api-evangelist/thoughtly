@@ -1,6 +1,6 @@
-openapi: 3.0.0
+openapi: 3.2.0
 info:
-  title: Thoughtly agent contact API
+  title: Thoughtly Contact API
   version: 1.0.0
   description: 'The Thoughtly API lets you programmatically manage voice and chat AI agents,
 
@@ -10,9 +10,7 @@ info:
 
     headers: `x-api-token` and `team_id`, both available from the Developer
 
-    Settings page of the Thoughtly dashboard.
-
-    '
+    Settings page of the Thoughtly dashboard.'
   contact:
     name: Thoughtly Support
     email: support@thoughtly.com
@@ -27,7 +25,7 @@ security:
 - ApiKeyAuth: []
   TeamIdAuth: []
 tags:
-- name: contact
+- name: Contact
   description: Contact management — create, retrieve, update, and call contacts.
 paths:
   /contact:
@@ -36,7 +34,7 @@ paths:
       description: Retrieves a list of Contacts. Supports filtering by tags, phone numbers, and search.
       operationId: getContacts
       tags:
-      - contact
+      - Contact
       parameters:
       - name: search
         in: query
@@ -98,7 +96,7 @@ paths:
       description: Creates a new Contact (a person you can call or message).
       operationId: createContact
       tags:
-      - contact
+      - Contact
       requestBody:
         required: true
         content:
@@ -118,7 +116,7 @@ paths:
       description: Retrieve a single Contact by ID.
       operationId: getContact
       tags:
-      - contact
+      - Contact
       parameters:
       - name: id
         in: path
@@ -139,7 +137,7 @@ paths:
       description: Permanently deletes a Contact by ID.
       operationId: deleteContact
       tags:
-      - contact
+      - Contact
       parameters:
       - name: id
         in: path
@@ -159,7 +157,7 @@ paths:
       description: Initiate a call with a Contact using a specific Agent (interview).
       operationId: callContact
       tags:
-      - contact
+      - Contact
       requestBody:
         required: true
         content:
@@ -175,6 +173,38 @@ paths:
                 $ref: '#/components/schemas/GenericResponse'
 components:
   schemas:
+    GenericResponse:
+      type: object
+      required:
+      - data
+      properties:
+        error:
+          type:
+          - object
+          - 'null'
+          description: Populated only when the request fails.
+        data:
+          type: object
+          additionalProperties: true
+          description: Endpoint-specific payload.
+    CallRequest:
+      type: object
+      required:
+      - contact_id
+      - interview_id
+      properties:
+        contact_id:
+          type: string
+          description: ID of the Contact to call.
+        interview_id:
+          type: string
+          description: ID of the Agent (interview) that will handle the call.
+        metadata:
+          type:
+          - object
+          - 'null'
+          additionalProperties: true
+          description: Arbitrary key/value pairs available to the Agent script as `{key}` placeholders.
     ContactCreateRequest:
       type: object
       required:
@@ -199,36 +229,6 @@ components:
           additionalProperties: true
           description: Custom key/value attributes referenceable from Agent scripts.
       additionalProperties: false
-    CallRequest:
-      type: object
-      required:
-      - contact_id
-      - interview_id
-      properties:
-        contact_id:
-          type: string
-          description: ID of the Contact to call.
-        interview_id:
-          type: string
-          description: ID of the Agent (interview) that will handle the call.
-        metadata:
-          type: object
-          additionalProperties: true
-          nullable: true
-          description: Arbitrary key/value pairs available to the Agent script as `{key}` placeholders.
-    GenericResponse:
-      type: object
-      required:
-      - data
-      properties:
-        error:
-          type: object
-          nullable: true
-          description: Populated only when the request fails.
-        data:
-          type: object
-          additionalProperties: true
-          description: Endpoint-specific payload.
   securitySchemes:
     ApiKeyAuth:
       type: apiKey

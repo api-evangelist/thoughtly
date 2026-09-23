@@ -1,6 +1,6 @@
-openapi: 3.0.0
+openapi: 3.2.0
 info:
-  title: Thoughtly agent webhooks API
+  title: Thoughtly Webhooks API
   version: 1.0.0
   description: 'The Thoughtly API lets you programmatically manage voice and chat AI agents,
 
@@ -10,9 +10,7 @@ info:
 
     headers: `x-api-token` and `team_id`, both available from the Developer
 
-    Settings page of the Thoughtly dashboard.
-
-    '
+    Settings page of the Thoughtly dashboard.'
   contact:
     name: Thoughtly Support
     email: support@thoughtly.com
@@ -27,7 +25,7 @@ security:
 - ApiKeyAuth: []
   TeamIdAuth: []
 tags:
-- name: webhooks
+- name: Webhooks
   description: Webhook subscription, unsubscription, and automation triggers.
 paths:
   /webhooks:
@@ -36,7 +34,7 @@ paths:
       description: Retrieve all active webhook subscriptions for the authenticated workspace.
       operationId: getWebhooks
       tags:
-      - webhooks
+      - Webhooks
       responses:
         '200':
           description: List of webhook subscriptions.
@@ -50,7 +48,7 @@ paths:
       description: Subscribe to a webhook event (e.g. NEW_RESPONSE, PHONE_TRANSFER).
       operationId: subscribeWebhook
       tags:
-      - webhooks
+      - Webhooks
       requestBody:
         required: true
         content:
@@ -70,7 +68,7 @@ paths:
       description: Remove a webhook subscription.
       operationId: unsubscribeWebhook
       tags:
-      - webhooks
+      - Webhooks
       requestBody:
         required: true
         content:
@@ -90,7 +88,7 @@ paths:
       description: Trigger an Automation that uses a Webhook trigger. Request body can be any arbitrary JSON; fields are available downstream in the automation steps.
       operationId: triggerAutomation
       tags:
-      - webhooks
+      - Webhooks
       parameters:
       - name: automation_id
         in: path
@@ -116,6 +114,20 @@ paths:
                 $ref: '#/components/schemas/GenericResponse'
 components:
   schemas:
+    GenericResponse:
+      type: object
+      required:
+      - data
+      properties:
+        error:
+          type:
+          - object
+          - 'null'
+          description: Populated only when the request fails.
+        data:
+          type: object
+          additionalProperties: true
+          description: Endpoint-specific payload.
     WebhookUnsubscribeRequest:
       type: object
       required:
@@ -135,19 +147,6 @@ components:
         url:
           type: string
       additionalProperties: false
-    GenericResponse:
-      type: object
-      required:
-      - data
-      properties:
-        error:
-          type: object
-          nullable: true
-          description: Populated only when the request fails.
-        data:
-          type: object
-          additionalProperties: true
-          description: Endpoint-specific payload.
     WebhookSubscribeRequest:
       type: object
       required:
@@ -160,8 +159,9 @@ components:
           - NEW_RESPONSE
           - PHONE_TRANSFER
         data:
-          type: string
-          nullable: true
+          type:
+          - string
+          - 'null'
         url:
           type: string
           format: uri

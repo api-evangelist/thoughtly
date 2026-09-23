@@ -1,6 +1,6 @@
-openapi: 3.0.0
+openapi: 3.2.0
 info:
-  title: Thoughtly agent user API
+  title: Thoughtly User API
   version: 1.0.0
   description: 'The Thoughtly API lets you programmatically manage voice and chat AI agents,
 
@@ -10,9 +10,7 @@ info:
 
     headers: `x-api-token` and `team_id`, both available from the Developer
 
-    Settings page of the Thoughtly dashboard.
-
-    '
+    Settings page of the Thoughtly dashboard.'
   contact:
     name: Thoughtly Support
     email: support@thoughtly.com
@@ -27,7 +25,7 @@ security:
 - ApiKeyAuth: []
   TeamIdAuth: []
 tags:
-- name: user
+- name: User
   description: Authenticated user details.
 paths:
   /user:
@@ -36,7 +34,7 @@ paths:
       description: Retrieve the currently authenticated user's profile (ID, name, email).
       operationId: getUser
       tags:
-      - user
+      - User
       responses:
         '200':
           description: Authenticated user details.
@@ -52,8 +50,9 @@ components:
       - data
       properties:
         error:
-          type: object
-          nullable: true
+          type:
+          - object
+          - 'null'
           description: Populated only when the request fails.
         data:
           type: object
