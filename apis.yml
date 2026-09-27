@@ -58,7 +58,7 @@ modified: '2026-05-24'
 specificationVersion: '0.23'
 apis:
 - aid: thoughtly:thoughtly-agent-api
-  name: Thoughtly agent API
+  name: Thoughtly Agent API
   description: Voice and chat agent operations. Agents are referenced as "interviews" in URLs.
   humanURL: https://docs.thoughtly.com/developers
   baseURL: https://api.thoughtly.com
@@ -104,7 +104,7 @@ apis:
   - type: Authentication
     url: https://app.thoughtly.com/settings/developer
 - aid: thoughtly:thoughtly-contact-api
-  name: Thoughtly contact API
+  name: Thoughtly Contact API
   description: Contact management — create, retrieve, update, and call contacts.
   humanURL: https://docs.thoughtly.com/developers
   baseURL: https://api.thoughtly.com
@@ -150,7 +150,7 @@ apis:
   - type: Authentication
     url: https://app.thoughtly.com/settings/developer
 - aid: thoughtly:thoughtly-user-api
-  name: Thoughtly user API
+  name: Thoughtly User API
   description: Authenticated user details.
   humanURL: https://docs.thoughtly.com/developers
   baseURL: https://api.thoughtly.com
@@ -196,7 +196,7 @@ apis:
   - type: Authentication
     url: https://app.thoughtly.com/settings/developer
 - aid: thoughtly:thoughtly-webhooks-api
-  name: Thoughtly webhooks API
+  name: Thoughtly Webhooks API
   description: Webhook subscription, unsubscription, and automation triggers.
   humanURL: https://docs.thoughtly.com/developers
   baseURL: https://api.thoughtly.com

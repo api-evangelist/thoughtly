@@ -114,20 +114,6 @@ paths:
                 $ref: '#/components/schemas/GenericResponse'
 components:
   schemas:
-    GenericResponse:
-      type: object
-      required:
-      - data
-      properties:
-        error:
-          type:
-          - object
-          - 'null'
-          description: Populated only when the request fails.
-        data:
-          type: object
-          additionalProperties: true
-          description: Endpoint-specific payload.
     WebhookUnsubscribeRequest:
       type: object
       required:
@@ -165,6 +151,20 @@ components:
         url:
           type: string
           format: uri
+    GenericResponse:
+      type: object
+      required:
+      - data
+      properties:
+        error:
+          type:
+          - object
+          - 'null'
+          description: Populated only when the request fails.
+        data:
+          type: object
+          additionalProperties: true
+          description: Endpoint-specific payload.
   securitySchemes:
     ApiKeyAuth:
       type: apiKey
