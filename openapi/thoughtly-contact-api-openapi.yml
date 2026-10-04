@@ -173,20 +173,6 @@ paths:
                 $ref: '#/components/schemas/GenericResponse'
 components:
   schemas:
-    GenericResponse:
-      type: object
-      required:
-      - data
-      properties:
-        error:
-          type:
-          - object
-          - 'null'
-          description: Populated only when the request fails.
-        data:
-          type: object
-          additionalProperties: true
-          description: Endpoint-specific payload.
     CallRequest:
       type: object
       required:
@@ -229,6 +215,20 @@ components:
           additionalProperties: true
           description: Custom key/value attributes referenceable from Agent scripts.
       additionalProperties: false
+    GenericResponse:
+      type: object
+      required:
+      - data
+      properties:
+        error:
+          type:
+          - object
+          - 'null'
+          description: Populated only when the request fails.
+        data:
+          type: object
+          additionalProperties: true
+          description: Endpoint-specific payload.
   securitySchemes:
     ApiKeyAuth:
       type: apiKey
