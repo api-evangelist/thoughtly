@@ -1,3 +1,8 @@
+# Provenance stamped 2026-10-07 (roadmap#943): written by an API Evangelist sweep (dated 2026-05-24 by the file itself), not
+# harvested from the provider. `method: generated` so the economics campaign may replace it with a
+# dated, verbatim transcription; every figure below is unverified until it does.
+method: generated
+generated: '2026-05-24'
 specification: API Commons Plans
 specificationVersion: '0.1'
 schema: https://raw.githubusercontent.com/api-evangelist/interface-research/main/schema/api-commons.yml#/$defs/Plans
@@ -163,3 +168,53 @@ plans:
         price: '200'
         userMultiplied: false
         description: 200 credits per $1 of carrier passthrough cost.
+x-canonical:
+  generated: '2026-10-08'
+  vocabulary: all/0-working/economics/plans-canonical.yml
+  models:
+  - free
+  - metered
+  - subscription
+  units:
+  - compute
+  - credit
+  - negotiated
+  - period
+  - seat
+  plans:
+  - name: Free
+    access: free
+    model: free
+    model_how: derived
+    units:
+    - compute
+    - seat
+    periods:
+    - month
+  - name: Starter
+    access: other
+    model: subscription
+    model_how: stated
+    units:
+    - compute
+    - period
+    periods:
+    - month
+    - per-use
+  - name: Enterprise
+    access: enterprise
+    model: subscription
+    model_how: derived
+    units:
+    - negotiated
+    periods:
+    - year
+  - name: AppSumo Lifetime
+    access: other
+    model: metered
+    model_how: derived
+    units:
+    - credit
+    periods:
+    - month
+    - per-use
