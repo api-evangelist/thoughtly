@@ -173,24 +173,20 @@ paths:
                 $ref: '#/components/schemas/GenericResponse'
 components:
   schemas:
-    CallRequest:
+    GenericResponse:
       type: object
       required:
-      - contact_id
-      - interview_id
+      - data
       properties:
-        contact_id:
-          type: string
-          description: ID of the Contact to call.
-        interview_id:
-          type: string
-          description: ID of the Agent (interview) that will handle the call.
-        metadata:
+        error:
           type:
           - object
           - 'null'
+          description: Populated only when the request fails.
+        data:
+          type: object
           additionalProperties: true
-          description: Arbitrary key/value pairs available to the Agent script as `{key}` placeholders.
+          description: Endpoint-specific payload.
     ContactCreateRequest:
       type: object
       required:
@@ -215,20 +211,24 @@ components:
           additionalProperties: true
           description: Custom key/value attributes referenceable from Agent scripts.
       additionalProperties: false
-    GenericResponse:
+    CallRequest:
       type: object
       required:
-      - data
+      - contact_id
+      - interview_id
       properties:
-        error:
+        contact_id:
+          type: string
+          description: ID of the Contact to call.
+        interview_id:
+          type: string
+          description: ID of the Agent (interview) that will handle the call.
+        metadata:
           type:
           - object
           - 'null'
-          description: Populated only when the request fails.
-        data:
-          type: object
           additionalProperties: true
-          description: Endpoint-specific payload.
+          description: Arbitrary key/value pairs available to the Agent script as `{key}` placeholders.
   securitySchemes:
     ApiKeyAuth:
       type: apiKey
