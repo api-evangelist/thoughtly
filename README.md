@@ -1,4 +1,4 @@
-# Thoughtly (thoughtly)
+# Thoughtly
 
 <!-- API-EVANGELIST-PROVENANCE:BEGIN -->
 > ### About this repository
@@ -74,140 +74,181 @@ subscribing to call-completion webhooks. Thoughtly integrates natively with
 Salesforce, HubSpot, Zoho, GoHighLevel, Keap, Pipedrive, Attio, Calendly,
 Acuity, Cal.com, Mindbody, Gmail, Slack, Zendesk, Shopify, Zapier, and Make.
 
-**APIs.json:** [https://raw.githubusercontent.com/api-evangelist/thoughtly/refs/heads/main/apis.yml](https://raw.githubusercontent.com/api-evangelist/thoughtly/refs/heads/main/apis.yml)
+**Areas:** Voice AI · Chat AI · Conversational AI · AI Agents · Outbound Calling · Inbound Calling · Lead Conversion · SMS · WhatsApp · CRM · Telephony
 
-## Scope
+## Thoughtly on APIs.io
 
-- **Type:** Index
-- **Position:** Provider
-- **Access:** 3rd-Party
+Everything profiled for Thoughtly is published on APIs.io rather than in this repository. Start at the provider page — **[apis.io/providers/thoughtly/](https://apis.io/providers/thoughtly/)** — or go straight to one of the APIs or properties below.
 
-## Tags
+### APIs (4)
 
-- Voice AI
-- Chat AI
-- Conversational AI
-- AI Agents
-- Outbound Calling
-- Inbound Calling
-- Lead Conversion
-- SMS
-- WhatsApp
-- CRM
-- Telephony
+- [Thoughtly Agent API](https://apis.io/apis/thoughtly/thoughtly-agent-api/) — Voice and chat agent operations. Agents are referenced as "interviews" in URLs.
+- [Thoughtly Contact API](https://apis.io/apis/thoughtly/thoughtly-contact-api/) — Contact management — create, retrieve, update, and call contacts.
+- [Thoughtly User API](https://apis.io/apis/thoughtly/thoughtly-user-api/) — Authenticated user details.
+- [Thoughtly Webhooks API](https://apis.io/apis/thoughtly/thoughtly-webhooks-api/) — Webhook subscription, unsubscription, and automation triggers.
 
-## Timestamps
+### Published properties
 
-- **Created:** 2026-05-24
-- **Modified:** 2026-05-24
+Each property below is a page on APIs.io carrying the machine-readable artifact and what it says.
 
-## APIs
+#### MCP servers (1)
 
-### Thoughtly API
+Model Context Protocol servers that expose the API to agents.
 
-Public REST API for the Thoughtly platform. Manage Agents (called
-"interviews" in the API), create and update Contacts, trigger outbound
-calls, search call responses, subscribe to webhook events
-(NEW_RESPONSE, PHONE_TRANSFER, etc.), and trigger Webhook-driven
-Automations. Authentication uses two headers: x-api-token and team_id.
+- [thoughtly](https://apis.io/servers/thoughtly/thoughtly/)
 
-- **Human URL:** [https://docs.thoughtly.com/developers](https://docs.thoughtly.com/developers)
-- **Base URL:** `https://api.thoughtly.com`
+#### Agentic access (1)
 
-#### Tags
+Which operations an agent can call, which act, and which need a human in the loop.
 
-- Voice AI
-- Agents
-- Contacts
-- Calls
-- Webhooks
+- [Thoughtly Agentic Access](https://apis.io/agentic-access/thoughtly/thoughtly-agentic-access/)
 
-#### Properties
+#### JSON Schema (4)
 
-- [Documentation](https://docs.thoughtly.com/developers)
-- [Documentation](https://docs.thoughtly.com/api-reference)
-- [OpenAPI](https://docs.thoughtly.com/api-reference/openapi.json) — [OpenAPI Specification](https://spec.openapis.org/oas/latest.html)
-- [OpenAPI](openapi/thoughtly-api-openapi.yml) — [OpenAPI Specification](https://spec.openapis.org/oas/latest.html)
-- [Postman Collection](collections/thoughtly-api.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/thoughtly-api.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
-- [Spectral Rules](rules/thoughtly-rules.yml)
-- [JSON Schema](json-schema/thoughtly-contact-schema.json) — [JSON Schema](https://json-schema.org/specification)
-- [JSON Schema](json-schema/thoughtly-agent-schema.json) — [JSON Schema](https://json-schema.org/specification)
-- [JSON Schema](json-schema/thoughtly-call-schema.json) — [JSON Schema](https://json-schema.org/specification)
-- [JSON Schema](json-schema/thoughtly-webhook-schema.json) — [JSON Schema](https://json-schema.org/specification)
-- [JSON Structure](json-structure/thoughtly-contact-structure.json)
-- [JSON Structure](json-structure/thoughtly-call-structure.json)
-- [JSON-LD](json-ld/thoughtly-context.jsonld) — [JSON-LD](https://www.w3.org/TR/json-ld11/)
-- [Examples](examples/thoughtly-create-contact-example.json)
-- [Examples](examples/thoughtly-call-contact-example.json)
-- [Examples](examples/thoughtly-subscribe-webhook-example.json)
-- [Examples](examples/thoughtly-new-response-webhook-example.json)
-- [Webhooks](https://docs.thoughtly.com/integrations/webhooks)
-- [Documentation](https://docs.thoughtly.com/automations/getting-started)
-- [Authentication](https://app.thoughtly.com/settings/developer)
+The data models the API reads and writes.
 
-## Common Properties
+- [Thoughtly Agent](https://apis.io/schemas/thoughtly/thoughtly-agent/)
+- [Thoughtly Call](https://apis.io/schemas/thoughtly/thoughtly-call/)
+- [Thoughtly Contact](https://apis.io/schemas/thoughtly/thoughtly-contact/)
+- [Thoughtly Webhook](https://apis.io/schemas/thoughtly/thoughtly-webhook/)
+
+#### JSON Structure (2)
+
+Data models expressed in JSON Structure.
+
+- [Thoughtly Call Structure](https://apis.io/json-structure/thoughtly/thoughtly-call-structure/)
+- [Thoughtly Contact Structure](https://apis.io/json-structure/thoughtly/thoughtly-contact-structure/)
+
+#### JSON-LD (1)
+
+Linked-data contexts for the provider's vocabulary.
+
+- [Thoughtly Context](https://apis.io/jsonld/thoughtly/thoughtly-context/)
+
+#### Vocabulary (1)
+
+The provider's domain terms, defined.
+
+- [Thoughtly Vocabulary](https://apis.io/vocabularies/thoughtly/thoughtly-vocabulary/)
+
+#### Examples (4)
+
+Example requests and responses.
+
+- [Thoughtly Call Contact Example](https://apis.io/examples/thoughtly/thoughtly-call-contact-example/)
+- [Thoughtly Create Contact Example](https://apis.io/examples/thoughtly/thoughtly-create-contact-example/)
+- [Thoughtly New Response Webhook Example](https://apis.io/examples/thoughtly/thoughtly-new-response-webhook-example/)
+- [Thoughtly Subscribe Webhook Example](https://apis.io/examples/thoughtly/thoughtly-subscribe-webhook-example/)
+
+#### Collections (9)
+
+Postman and Open Collection request collections.
+
+- [Thoughtly agent API](https://apis.io/collections/thoughtly/open-thoughtly-agent-api/)
+- [Thoughtly API](https://apis.io/collections/thoughtly/open-thoughtly-api/)
+- [Thoughtly agent contact API](https://apis.io/collections/thoughtly/open-thoughtly-contact-api/)
+- [Thoughtly agent user API](https://apis.io/collections/thoughtly/open-thoughtly-user-api/)
+- [Thoughtly agent webhooks API](https://apis.io/collections/thoughtly/open-thoughtly-webhooks-api/)
+- [Thoughtly agent API](https://apis.io/collections/thoughtly/postman-thoughtly-agent-api/)
+- [Thoughtly agent contact API](https://apis.io/collections/thoughtly/postman-thoughtly-contact-api/)
+- [Thoughtly agent user API](https://apis.io/collections/thoughtly/postman-thoughtly-user-api/)
+- [Thoughtly agent webhooks API](https://apis.io/collections/thoughtly/postman-thoughtly-webhooks-api/)
+
+#### Governance rules (2)
+
+Spectral rulesets for the provider's contracts.
+
+- [Thoughtly — jsonschema rules](https://apis.io/rules/thoughtly/thoughtly-jsonschema-spectral-rules/)
+- [Thoughtly API Rules](https://apis.io/rules/thoughtly/thoughtly-rules/)
+
+#### Security (3)
+
+Authentication, trust centre, and vulnerability disclosure.
+
+- [Thoughtly Authentication](https://apis.io/security/thoughtly/thoughtly-authentication/)
+- [Thoughtly Domain Security](https://apis.io/security/thoughtly/thoughtly-domain-security/)
+- [Thoughtly Trust Center](https://apis.io/security/thoughtly/thoughtly-trust-center/)
+
+#### Plans and pricing (1)
+
+Published plans, tiers and prices.
+
+- [Thoughtly Plans Pricing](https://apis.io/plans/thoughtly/thoughtly-plans-pricing/)
+
+#### Rate limits (1)
+
+Published request limits.
+
+- [Thoughtly Rate Limits](https://apis.io/rate-limits/thoughtly/thoughtly-rate-limits/)
+
+#### FinOps (1)
+
+What the API costs to run, by operation.
+
+- [Thoughtly Finops](https://apis.io/finops/thoughtly/thoughtly-finops/)
+
+## Where to find this API
+
+Links to the company's own pages. This repository publishes no copy of their specifications — the canonical document is theirs and lives at the URLs below.
 
 - [Website](https://thoughtly.com)
-- [Portal](https://docs.thoughtly.com)
 - [Documentation](https://docs.thoughtly.com/developers)
-- [Documentation](https://docs.thoughtly.com/api-reference)
-- [Getting Started](https://docs.thoughtly.com/getting-started/quick-start)
-- [Sign Up](https://app.thoughtly.com/signup)
-- [Login](https://app.thoughtly.com/login)
-- [Authentication](https://app.thoughtly.com/settings/developer)
+- [Getting started](https://docs.thoughtly.com/getting-started/quick-start)
 - [Pricing](https://docs.thoughtly.com/platform/billing)
-- [Plans](plans/thoughtly-plans-pricing.yml)
-- [Rate Limits](rate-limits/thoughtly-rate-limits.yml)
-- [Fin Ops](finops/thoughtly-finops.yml)
-- [Changelog](https://docs.thoughtly.com/support/changelog)
 - [Support](https://docs.thoughtly.com/support/getting-help)
-- [F A Q](https://docs.thoughtly.com/resources/faq)
-- [Glossary](https://docs.thoughtly.com/resources/glossary/overview)
-- [Whitepapers](https://docs.thoughtly.com/resources/whitepapers/overview)
-- [Video Library](https://docs.thoughtly.com/resources/video-library)
-- [Integrations](https://docs.thoughtly.com/integrations/getting-started)
-- [Webhooks](https://docs.thoughtly.com/integrations/webhooks)
-- [Automations](https://docs.thoughtly.com/automations/getting-started)
-- [Knowledge Base](https://docs.thoughtly.com/genius/getting-started)
-- [Agent Builder](https://docs.thoughtly.com/build/agent-builder/overview)
-- [Phone Numbers](https://docs.thoughtly.com/phone-number/getting-started)
-- [Voices](https://docs.thoughtly.com/agents/voices)
-- [Blog Post](https://thoughtly.com/blog)
-- [LinkedIn](https://www.linkedin.com/company/thoughtly-ai/)
-- [Twitter](https://twitter.com/thoughtlyai)
-- [Affiliate Program](https://docs.thoughtly.com/promptbooks/joining-the-thoughtly-affiliate-program)
-- [Referral Program](https://docs.thoughtly.com/support/referral-program)
-- [Promptbooks](https://docs.thoughtly.com/promptbooks/browse)
-- [Vocabulary](vocabulary/thoughtly-vocabulary.yml)
-- [Integration](https://docs.thoughtly.com/integrations/crm/salesforce)
-- [Integration](https://docs.thoughtly.com/integrations/crm/hubspot)
-- [Integration](https://docs.thoughtly.com/integrations/crm/zoho)
-- [Integration](https://docs.thoughtly.com/integrations/crm/highlevel)
-- [Integration](https://docs.thoughtly.com/integrations/crm/pipedrive)
-- [Integration](https://docs.thoughtly.com/integrations/crm/attio)
-- [Integration](https://docs.thoughtly.com/integrations/crm/keap)
-- [Integration](https://docs.thoughtly.com/integrations/scheduling/calendly)
-- [Integration](https://docs.thoughtly.com/integrations/scheduling/acuity)
-- [Integration](https://docs.thoughtly.com/integrations/scheduling/cal-com)
-- [Integration](https://docs.thoughtly.com/integrations/scheduling/mindbody)
-- [Integration](https://docs.thoughtly.com/integrations/communication/gmail)
-- [Integration](https://docs.thoughtly.com/integrations/communication/slack)
-- [Integration](https://docs.thoughtly.com/integrations/communication/whatsapp-business)
-- [Integration](https://docs.thoughtly.com/integrations/ticketing/zendesk)
-- [Integration](https://docs.thoughtly.com/integrations/e-commerce/shopify)
-- [Integration](https://docs.thoughtly.com/integrations/productivity/google-sheets)
-- [Integration](https://docs.thoughtly.com/integrations/productivity/airtable)
-- [Integration](https://docs.thoughtly.com/integrations/productivity/typeform)
-- [Integration](https://docs.thoughtly.com/integrations/productivity/trello)
-- [Integration](https://docs.thoughtly.com/integrations/productivity/smartsheet)
-- [Integration](https://docs.thoughtly.com/integrations/productivity/zoom)
-- [Integration](https://docs.thoughtly.com/integrations/automations/zapier)
-- [Integration](https://docs.thoughtly.com/integrations/automations/make)
-- [Features](undefined)
+- [Changelog](https://docs.thoughtly.com/support/changelog)
 
-## Maintainers
+## API Evangelist rating
 
-**FN:** Kin Lane
-**Email:** kin@apievangelist.com
-**URL:** https://apievangelist.com
+**Kin Score 44.1** — developing · rubric 0.25.0 · scored 2026-10-23
+
+| Facet | Score |
+|---|---|
+| Discoverability | 68.3 |
+| Contract quality | 59.8 |
+| Contract governance | 27.3 |
+| Operational transparency | 28.9 |
+| Developer ergonomics | 48.8 |
+| Access clarity | 32.9 |
+
+**Agent readiness 49.0** — agent-ready (gated down from agent-native)
+
+| Agent-readiness dimension | Result |
+|---|---|
+| Spec Presence | yes |
+| Agentic Access | derived (partial credit) |
+| Reversibility Documented | — |
+| MCP Server | verified |
+| Auth Clarity | served (partial credit) |
+| Idempotency | — |
+| Error Semantics | — |
+| OpenAPI Examples | documented (partial credit) |
+| Rate Limit Signal | derived (partial credit) |
+| Event Surface Described | unknown |
+| Agent Skills | — |
+| Well Known Catalog | — |
+| Consent Identity | — |
+| Agent Card | — |
+| Dry Run Mode | — |
+| Delegated Identity | served (partial credit) |
+| Protected Resource Metadata | verified |
+| Dynamic Client Registration | yes |
+| Agentic Commerce | — |
+| Pagination Ratio | na |
+| Operation Distinctiveness | distinct |
+
+**Regulatory alignment 18.3** — Telecommunications
+
+The rubric is published at [github.com/api-evangelist/kin-score](https://github.com/api-evangelist/kin-score). The per-check breakdown behind these numbers — which checks were earned, partial or missed — along with score history and how this provider compares to its peers, is available at [apis.io/providers/thoughtly/](https://apis.io/providers/thoughtly/).
+
+## How this profile is made
+
+API Evangelist profiles a company's public API surface the way a developer would find it: the website, developer portal and documentation, the specifications it publishes, its public repositories, and its pricing, status and changelog pages. From that it derives the properties above — contracts split per API, workflows, schemas, collections, governance rules, plans and rate limits — and scores them against the published [Kin Score rubric](https://github.com/api-evangelist/kin-score).
+
+The artifacts are published on [APIs.io](https://apis.io), not in this repository. This repository is the public record for Thoughtly: the place to say something is wrong, missing or out of date, and to ask for a re-score or a removal.
+
+## Open an issue
+
+- **Something about this listing** — a wrong description, a missing API, a stale artifact or a question about the rating: [open an issue on this repository](https://github.com/api-evangelist/thoughtly/issues/new).
+- **A new API, or one that is not in the catalog yet** — [submit it on APIs.io](https://apis.io/add/).
+- **Anything else** — [the APIs.io inbox](https://github.com/api-search/inbox/issues/new) or [info@apievangelist.com](mailto:info@apievangelist.com).
